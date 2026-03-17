@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #0f172a;
+  --background: #ffffff;
+  --muted: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #f1f5f9;
+    --background: #0f172a;
+    --muted: #94a3b8;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Visible focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #334e68;
+  outline-offset: 2px;
+}
