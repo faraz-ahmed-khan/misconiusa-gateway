@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from 'next/image';
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ROUTES, CTA_TEXT } from "@/lib/constants";
@@ -20,8 +21,12 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <motion.div whileHover={{ y: -1 }} transition={{ duration: 0.18, ease: "easeOut" }}>
           <Link href={ROUTES.home} className="group relative flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]" aria-label="Misconi USA home">
-            <span className="text-[20px] font-extrabold tracking-tight text-[color:var(--color-text-primary)]">Misconi USA</span>
-            <span className="mt-1 h-0.5 w-7 rounded-full bg-[color:var(--color-gold)] transition-all duration-200 group-hover:w-11" />
+             <Image
+              src="/images/logo.png" 
+              alt=""
+              width={240}                
+              height={240}                        
+             />
           </Link>
         </motion.div>
         <motion.nav initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }} className="hidden items-center gap-6 text-[15px] md:flex" aria-label="Main navigation">
