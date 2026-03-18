@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Shared types for MisconiUSA.com
  * Operational gateway — forms, cards, subscription, pathways only.
  */
@@ -55,6 +55,8 @@ export interface SubscriptionPack {
   name: string;
   description: string;
   ctaText: string;
+  ctaHref?: string;
+  features?: string[];
 }
 
 // ——— API responses ———

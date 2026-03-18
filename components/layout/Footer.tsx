@@ -1,46 +1,37 @@
+﻿"use client";
+
 import Link from "next/link";
 import { ROUTES } from "@/lib/constants";
+import AnimateIn from "@/components/ui/AnimateIn";
+import StaggerGroup from "@/components/ui/StaggerGroup";
+import StaggerItem from "@/components/ui/StaggerItem";
+import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/50" role="contentinfo">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="flex flex-col items-center gap-6 text-center">
-          <div>
-            <p className="font-semibold text-slate-900 dark:text-white">Misconi USA</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">The Readiness Company™</p>
+    <AnimateIn variant="fadeIn">
+      <footer className="border-t border-[rgba(212,168,87,0.15)] bg-[#050F1C]" role="contentinfo">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+          <div className="flex flex-col items-center gap-6 text-center text-[color:var(--color-text-body)]">
+            <div className="space-y-2">
+              <p className="text-[20px] font-extrabold tracking-tight text-[color:var(--color-text-primary)]">Misconi USA</p>
+              <motion.div initial={{ scaleX: 0, originX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.2 }} className="mx-auto h-0.5 w-8 rounded-full bg-[color:var(--color-gold)]" />
+              <p className="text-sm text-[color:var(--color-text-body)]">The Readiness Company™</p>
+            </div>
+            <a href="mailto:info@misconiusa.com" className="text-sm text-[color:var(--color-text-body)] hover:text-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050F1C] rounded">info@misconiusa.com</a>
+            <StaggerGroup className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" stagger={0.12}>
+              {[{ href: ROUTES.opportunities, label: "Opportunities" }, { href: ROUTES.pathways, label: "Pathways" }, { href: ROUTES.subscribe, label: "Subscribe" }, { href: ROUTES.contactAnchor, label: "Contact" }].map((item) => (
+                <StaggerItem key={item.label}><Link href={item.href} className="text-[color:var(--color-text-body)] hover:text-[color:var(--color-gold-light)]">{item.label}</Link></StaggerItem>
+              ))}
+            </StaggerGroup>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[color:var(--color-text-muted)]">
+              <Link href="/privacy" className="hover:text-[color:var(--color-gold-light)]">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-[color:var(--color-gold-light)]">Terms of Use</Link>
+            </div>
+            <p className="text-xs text-[color:var(--color-text-muted)]">© Misconi USA. All rights reserved.</p>
           </div>
-          <a
-            href="mailto:info@misconiusa.com"
-            className="text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-600 focus-visible:ring-offset-2 rounded"
-          >
-            info@misconiusa.com
-          </a>
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" aria-label="Footer navigation">
-            <Link href={ROUTES.opportunities} className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Opportunities
-            </Link>
-            <Link href={ROUTES.pathways} className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Pathways
-            </Link>
-            <Link href={ROUTES.subscribe} className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Subscribe
-            </Link>
-            <Link href={ROUTES.contactAnchor} className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-500">
-            <Link href="/privacy" className="hover:text-slate-700 dark:hover:text-slate-300">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-slate-700 dark:hover:text-slate-300">
-              Terms of Use
-            </Link>
-          </div>
-          <p className="text-xs text-slate-500 dark:text-slate-500">© Misconi USA. All rights reserved.</p>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </AnimateIn>
   );
 }

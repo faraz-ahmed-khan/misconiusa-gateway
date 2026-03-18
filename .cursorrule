@@ -1,0 +1,1202 @@
+---
+description: MisconiUSA.com — Prime Agent Surface, architecture and design system
+alwaysApply: true
+---
+
+# MisconiUSA.com Project Rules
+
+---
+
+## PART 1 — SURFACE IDENTITY & ARCHITECTURE
+
+- **Surface Role**
+  - MisconiUSA.com is the Prime Agent Surface — the central command and
+    intent routing engine for the entire Misconi USA ecosystem.
+  - It is NOT a marketing site. It is a federal-grade operational portal.
+  - Every screen must feel like a governed, institutional system — not a
+    startup landing page.
+  - Users arrive here to declare intent, activate readiness, and be routed
+    to the correct surface.
+
+- **Surface Hierarchy**
+  - MisconiUSA.com is the ONLY surface allowed to use the full core brand palette.
+  - It sits above all other surfaces in authority and visual weight.
+  - It must be immediately distinguishable from MisconiUSANetwork.com,
+    GYBS, and all other ecosystem surfaces.
+
+- **Homepage Rules**
+  - Homepage leads with Intent Cards — procedural declarations, not marketing tiles.
+  - Intent Cards use: white background, Deep Navy text, Gold border on hover/select.
+  - No icons, no gradients, no illustrations on Intent Cards.
+  - Primary CTA is always readiness-pathway-oriented.
+
+- **Routing Logic**
+  - Surface routes users to: GYBS (scoring), Network (education),
+    Distribution (supplier onboarding), Inc (product warehouse).
+  - Routing must be visually clear — users must always know where they are
+    being sent and why.
+
+- **Metadata-Driven Rendering**
+  - Badges, tags, and readiness state indicators are metadata — not design choices.
+  - Colors for badges and lanes are governed (see Part 2 token system).
+  - Never override badge colors with decorative alternatives.
+
+- **Lane Separation**
+  - Supplier, Buyer, Partner, Agency, Readiness, and Marketplace lanes
+    must stay visually and functionally separated.
+  - Lane colors are non-negotiable — they are system signals.
+
+---
+
+## PART 2 — DESIGN SYSTEM & UI RULES
+
+You are an award-winning UI/UX designer and frontend developer.
+The caliber of work here is Awwwards, FWA, and CSS Design Awards level.
+Think: federal authority meets modern institutional design.
+Goldman Sachs meets Stripe. Serious, precise, trustworthy, and modern.
+
+Do not change any content, routing logic, or business rules.
+Only elevate the visual execution to world-class standard.
+
+---
+
+### DESIGN PHILOSOPHY
+- Authority is the primary emotion. Everything must feel governed.
+- Gold is a signal — use it surgingly. It means something important.
+- Deep Navy is the dominant surface — it carries the institutional weight.
+- White space is structure, not emptiness.
+- Every component must feel like it belongs in a federal procurement system
+  that has been redesigned by the best design studio in the world.
+
+---
+
+### COLOR TOKENS
+Add to tailwind.config.ts and globals.css:
+```css
+:root {
+  /* Core Brand */
+  --color-navy: #0A1A2F;
+  --color-navy-mid: #0F2444;
+  --color-navy-light: #1A3050;
+  --color-navy-surface: #162640;
+
+  /* Gold */
+  --color-gold: #D4A857;
+  --color-gold-dark: #B8902F;
+  --color-gold-light: #E8C97A;
+  --color-gold-glow: rgba(212,168,87,0.15);
+  --color-gold-tint: rgba(212,168,87,0.08);
+
+  /* Surfaces */
+  --color-off-white: #F5F5F2;
+  --color-white: #FFFFFF;
+  --color-surface-dark: #071422;
+  --color-surface-card: rgba(255,255,255,0.04);
+
+  /* Readiness Signal */
+  --color-ready: #00C853;
+  --color-ready-glow: rgba(0,200,83,0.15);
+
+  /* Typography */
+  --color-text-primary: #F5F5F2;
+  --color-text-body: rgba(245,245,242,0.75);
+  --color-text-muted: rgba(245,245,242,0.45);
+  --color-text-dark: #0A1A2F;
+
+  /* Borders */
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-mid: rgba(255,255,255,0.12);
+  --color-border-gold: rgba(212,168,87,0.35);
+  --color-border-gold-active: #D4A857;
+
+  /* Intent Cards (light surface) */
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #E8E4DC;
+  --color-card-border-hover: #D4A857;
+  --color-card-text: #0A1A2F;
+
+  /* Metadata — Readiness States */
+  --badge-identity: #9E9E9E;
+  --badge-readiness: #00C853;
+  --badge-correction: #FF9800;
+  --badge-activation: #2196F3;
+
+  /* Metadata — Lanes */
+  --lane-supplier: #1A73E8;
+  --lane-buyer: #00A86B;
+  --lane-partner: #6A1B9A;
+  --lane-agency: #0A1A2F;
+  --lane-readiness: #00897B;
+  --lane-marketplace: #FB8C00;
+}
+```
+
+---
+
+### TYPOGRAPHY
+Font: "Inter" — import from Google Fonts
+Display font for hero headlines: "Inter" weight 900 or consider
+a high-authority serif like "Playfair Display" for the main H1 only
+if it reinforces institutional gravitas.
+
+Scale:
+- Display:  80px weight 900, line-height 1.0,  letter-spacing -0.04em
+- H1:       64px weight 800, line-height 1.05, letter-spacing -0.03em
+- H2:       44px weight 700, line-height 1.15, letter-spacing -0.02em
+- H3:       30px weight 700, line-height 1.25, letter-spacing -0.01em
+- H4:       22px weight 600, line-height 1.35
+- Body LG:  19px weight 400, line-height 1.8
+- Body:     16px weight 400, line-height 1.75
+- Small:    14px weight 400, line-height 1.6
+- XS:       12px weight 500, letter-spacing 0.05em
+- Label:    11px weight 700, letter-spacing 0.12em, uppercase
+
+On dark (Navy) backgrounds: text is Off-White (#F5F5F2)
+On light (Off-White) backgrounds: text is Deep Navy (#0A1A2F)
+Gold (#D4A857) is used ONLY for: accents, borders, hover states,
+signal labels, and key CTAs — never for body text.
+
+---
+
+### SPACING
+Base grid: 8px
+Section vertical padding: 112px
+Card padding: 44px
+Max content width: 1200px centered
+Grid gutters: 28px
+
+Border radius:
+- Buttons:     10px
+- Cards:       18px
+- Intent Cards: 12px
+- Inputs:      10px
+- Badges/Pills: 100px
+- Icon boxes:   12px
+
+---
+
+### MOTION & ANIMATION
+Easing: cubic-bezier(0.4, 0, 0.2, 1)
+Default duration: 0.25s
+
+Rules:
+- Hover lift on cards: translateY(-4px), 0.25s ease
+- Gold border on card hover: transition 0.2s ease
+- Focus ring: 0 0 0 3px rgba(212,168,87,0.30)
+- Page entrance: fade up — opacity 0→1, translateY(24px→0), stagger 0.1s
+- Section entrance: Intersection Observer, animate on scroll
+- Gold glow pulse on primary CTA: subtle box-shadow pulse 3s infinite
+- All hover states: 0.2s ease minimum
+- No jarring transitions — everything feels measured and deliberate
+
+---
+
+### NAVIGATION
+- Sticky, z-index 100, height 80px
+- Background: rgba(10,26,47,0.92), backdrop-filter: blur(24px) saturate(180%)
+- Bottom border: 1px solid rgba(212,168,87,0.15)
+- Left: "Misconi USA" wordmark
+  Text: #F5F5F2, weight 800, 20px
+  Add a small gold horizontal rule (2px, 24px wide, #D4A857) beneath the wordmark
+- Center nav links: About, Ecosystem, Readiness, Portal, Contact
+  Text: rgba(245,245,242,0.70), 15px weight 500
+  Hover: #F5F5F2, with a gold underline dot or thin gold underline
+  Active page: #D4A857, weight 600
+- Right: Primary CTA — "Access Portal"
+  Background: transparent, border 1.5px solid #D4A857, text #D4A857
+  px-6 py-2.5, border-radius 10px, weight 600, 14px
+  Hover: background rgba(212,168,87,0.12), text #E8C97A
+  Add a secondary "Get Scored →" pill in #00C853 background, #000 text
+  to the left of the portal button — small, 13px, weight 600
+- Mobile: hamburger (3 gold lines), full-screen Navy overlay menu
+
+---
+
+### HERO SECTION
+This is the most authoritative screen in the entire ecosystem.
+It must feel like the entrance to a federal command center.
+
+Background:
+- Deep Navy (#0A1A2F) full bleed
+- Add a very subtle diagonal grid pattern overlay (SVG, opacity 0.04)
+  using gold lines — creates a technical/blueprint feel
+- Top-right: extremely subtle radial glow in gold (rgba(212,168,87,0.06))
+- Bottom-left: extremely subtle radial glow in green (rgba(0,200,83,0.04))
+
+Content: left-aligned, max-width 700px (NOT centered — authority reads left)
+
+TOP LABEL:
+- Pill: background rgba(212,168,87,0.10), border 1px solid rgba(212,168,87,0.30)
+- Text: "Prime Agent Surface — Misconi USA Ecosystem"
+  11px uppercase #D4A857 weight 700 letter-spacing 0.12em
+- Left of text: small gold dot, pulsing (opacity 1→0.4, 2s infinite)
+
+HEADLINE:
+"The Operational
+Readiness Engine
+for American Business."
+- 72px weight 900 #F5F5F2, line-height 1.0, letter-spacing -0.03em
+- "Readiness Engine" or "American Business" on its own line
+- Last line or a key phrase: color #D4A857 (gold)
+- This is the only place decorative weight is acceptable in the headline
+
+SUBHEADLINE:
+"Misconi USA activates, manages, and routes business
+readiness across contracts, distribution, and SBA-aligned programs."
+- 19px rgba(245,245,242,0.70), line-height 1.75, max-width 560px
+
+INTENT DECLARATION ROW:
+Before the CTAs, show a subtle row:
+"This surface serves:" followed by 4 inline pills:
+Supplier | Buyer | Partner | Agency
+Each pill uses its lane color as background (20% opacity) and text
+border-radius 100px, 12px, weight 600, px-3 py-1
+
+PRIMARY CTA:
+"Enter the Portal →"
+Background: #D4A857, text #0A1A2F, 18px weight 700
+Padding: 18px 44px, border-radius 10px
+Box-shadow: 0 8px 40px rgba(212,168,87,0.25)
+Hover: background #E8C97A, translateY(-2px), shadow deepens
+Pulse glow animation: subtle, 3s infinite
+
+SECONDARY CTA:
+"Get Your Business Score" — outline button
+Border: 1.5px solid rgba(245,245,242,0.25), text rgba(245,245,242,0.75)
+Same size and padding as primary
+Hover: border rgba(245,245,242,0.50), text #F5F5F2
+
+HERO RIGHT COLUMN (on desktop — 2-column layout):
+A custom-built operational dashboard mockup:
+- Dark card (#071422), border-radius 20px, border 1px solid rgba(212,168,87,0.15)
+- Shadow: 0 32px 96px rgba(0,0,0,0.40)
+- Shows:
+  - Top bar: "Misconi USA — Prime Agent" label + green ready dot
+  - 4 lane indicators: Supplier / Buyer / Partner / Agency
+    each with its lane color dot + label + a thin status bar
+  - Bottom: a readiness score gauge — semicircular, gold fill
+  - Small "UBID: #MCI-00742" label in 11px gold monospace font
+- The card has a breathing animation: translateY(-6px) ↔ 0, 5s infinite ease-in-out
+- A second card behind it, rotated -6deg, partially visible: depth effect
+
+---
+
+### TRUST / AUTHORITY BAR (below hero)
+Background: rgba(212,168,87,0.06), border-top and border-bottom
+1px solid rgba(212,168,87,0.12), padding 28px 0
+
+4 authority signals flex row centered 72px gap:
+
+1. "Federal-Grade Architecture" — governs all 5 surfaces
+2. "SBA-Aligned Programs" — nationally supported pathways
+3. "Prime Agent System" — routes businesses to readiness
+4. "4,200+ Businesses Activated" — social proof
+
+Each: gold icon 18px, label 14px weight 700 #F5F5F2,
+sub 12px rgba(245,245,242,0.50)
+
+---
+
+### INTENT CARDS SECTION
+Section heading: "Declare Your Intent" — 44px weight 700 #F5F5F2 centered
+Subheading: "Select the path that matches your current stage."
+16px rgba(245,245,242,0.60) centered
+
+Background: #0A1A2F (same as hero, continuous)
+
+Card grid: 2×2 or 3+1 centered layout
+Each Intent Card:
+- Background: #FFFFFF
+- Border: 1.5px solid #E8E4DC
+- Border-radius: 12px
+- Padding: 36px 40px
+- NO icons, NO gradients, NO illustrations — rule from doctrine
+
+Content inside each card:
+- Top-left: lane badge pill — lane color background (20% opacity),
+  lane color text, 11px uppercase, weight 700, letter-spacing 0.1em
+- H3: intent title — 22px weight 700 #0A1A2F, line-height 1.3
+- Body: 2-sentence description — 15px #334155, line-height 1.65
+- Bottom: CTA text link "Begin →" in 14px weight 600 #0A1A2F
+
+Hover state (the most important state on this page):
+- Border: 1.5px solid #D4A857
+- Box-shadow: 0 8px 32px rgba(212,168,87,0.15)
+- Top: a 3px gold border-top appears (border-radius top corners)
+- H3 color shifts to #0A1A2F (stays same but feels activated)
+- "Begin →" shifts to #D4A857
+- Transition: all 0.25s ease
+- Lift: translateY(-4px)
+
+Selected/Active state:
+- Border: 2px solid #D4A857
+- Background: rgba(212,168,87,0.04)
+- A small gold checkmark badge appears top-right corner
+
+---
+
+### READINESS STATES SECTION
+Section heading: "Readiness States" — 44px weight 700 #F5F5F2
+
+4 state cards in a row:
+Each card: background rgba(255,255,255,0.04),
+border 1px solid rgba(255,255,255,0.08), border-radius 16px, padding 32px
+
+Top: colored dot (badge color) + badge label
+H4: state name 20px weight 600 #F5F5F2
+Body: 14px rgba(245,245,242,0.60)
+Bottom: thin progress indicator bar in badge color
+
+States:
+1. Identity Pack — #9E9E9E — "Documentation and business identity verified"
+2. Readiness Pack — #00C853 — "All readiness dimensions activated"
+3. Correction Pack — #FF9800 — "Gaps identified, corrections underway"
+4. Activation Pack — #2196F3 — "Pathway activated, routing in progress"
+
+Hover: border rgba(255,255,255,0.18), background rgba(255,255,255,0.06)
+
+---
+
+### LANE ARCHITECTURE SECTION
+Background: alternate section — #071422 (darker navy)
+Section heading: "The Misconi Lane System"
+
+6 lane cards in a 3×2 grid:
+Each card: background #0A1A2F,
+border-left: 4px solid [lane color], border-radius 0 14px 14px 0
+Padding: 28px 32px
+
+Left border is the lane's color — this is the only place full lane
+color appears at full saturation.
+
+Content:
+- Lane name: 16px weight 700 #F5F5F2
+- Lane purpose: 13px rgba(245,245,242,0.55), line-height 1.6
+
+Hover: background rgba(255,255,255,0.04), left border brightens
+
+Lanes:
+- Supplier → #1A73E8
+- Buyer → #00A86B
+- Partner → #6A1B9A
+- Agency → border use #2A4A7F (lighter Navy so it's visible)
+- Readiness → #00897B
+- Marketplace → #FB8C00
+
+---
+
+### ECOSYSTEM SURFACES SECTION
+Background: #0A1A2F
+Section heading: "The Five Surfaces" 44px weight 700 #F5F5F2
+
+5 surface cards in a horizontal scroll or 5-column grid:
+Each card: background rgba(255,255,255,0.03),
+border 1px solid rgba(255,255,255,0.07),
+border-radius 16px, padding 32px
+
+Top: surface number "01" — "05" in 48px weight 900
+rgba(212,168,87,0.12) (decorative background text)
+
+Content:
+- Surface name: 18px weight 700 #F5F5F2
+- Domain: 13px #D4A857 weight 500
+- Role: 14px rgba(245,245,242,0.55), 2 lines max
+- Bottom tag: surface tone pill
+
+Active surface (MisconiUSA.com):
+- Border: 1px solid rgba(212,168,87,0.40)
+- Background: rgba(212,168,87,0.05)
+- Top-right: "You are here" pill in gold
+
+---
+
+### PORTAL / DASHBOARD SECTION
+Background: #071422
+Section heading: "Your Readiness Command Center"
+
+This section previews the portal dashboard UI:
+A full-width styled mockup — NOT a screenshot:
+
+Outer frame: #0A1A2F, border 1px solid rgba(212,168,87,0.12),
+border-radius 24px, padding 40px, shadow 0 40px 120px rgba(0,0,0,0.50)
+
+Inside the mockup:
+- Left sidebar (240px): dark (#071422), logo top, nav items below
+  Each nav item: 14px #F5F5F2, left icon in gold, active item
+  has gold left border 3px + gold text
+- Main area: 4 status tiles in a 2×2 grid
+  Each tile: white, border-radius 12px, padding 24px
+  Shows: readiness dimension name + score + thin bar
+- Top bar of mockup: "Welcome back — UBID #MCI-00742"
+  in 14px #D4A857 monospace, right side shows readiness level badge
+
+---
+
+### CTA BAND
+Full-width, background: linear-gradient(135deg, #0A1A2F 0%, #071422 100%)
+Border-top: 1px solid rgba(212,168,87,0.20)
+Padding: 96px 0
+
+Content: centered, max-width 680px
+- H2: "Your business readiness starts here." — 48px weight 800 #F5F5F2
+- Body: 18px rgba(245,245,242,0.65)
+- Two buttons side by side:
+  Primary: "Enter Portal" — #D4A857 bg, #0A1A2F text, weight 700
+  Secondary: "Get Your Business Score" — outline white
+
+---
+
+### FOOTER
+Background: #050F1C (deepest navy)
+Padding: 80px 0 40px
+Border-top: 1px solid rgba(212,168,87,0.15)
+
+4-column layout:
+- Brand: "Misconi USA" white 20px weight 800
+  Gold 2px rule below wordmark
+  Tagline: "The Operational Readiness Engine for American Business."
+  14px rgba(245,245,242,0.50)
+- Quick Links: 14px rgba(245,245,242,0.55), hover #D4A857
+- Ecosystem: links to all 5 surfaces, 14px
+- Legal/Compliance: Privacy, Terms, SBA Disclosure
+
+Bottom strip: 1px rgba(255,255,255,0.06) border
+Copyright 13px rgba(245,245,242,0.35) left
+"Prime Agent Surface" 13px #D4A857 right — reinforces surface identity
+
+---
+
+### METADATA BADGE SYSTEM
+These are system signals — never override with custom colors.
+
+Readiness State Badges:
+```css
+.badge-identity   { background: rgba(158,158,158,0.15); color: #9E9E9E; }
+.badge-readiness  { background: rgba(0,200,83,0.12);    color: #00C853; }
+.badge-correction { background: rgba(255,152,0,0.12);   color: #FF9800; }
+.badge-activation { background: rgba(33,150,243,0.12);  color: #2196F3; }
+```
+
+Lane Badges:
+```css
+.lane-supplier    { background: rgba(26,115,232,0.12);  color: #1A73E8; }
+.lane-buyer       { background: rgba(0,168,107,0.12);   color: #00A86B; }
+.lane-partner     { background: rgba(106,27,154,0.12);  color: #6A1B9A; }
+.lane-agency      { background: rgba(10,26,47,0.12);    color: #0A1A2F;
+                    border: 1px solid rgba(10,26,47,0.30); }
+.lane-readiness   { background: rgba(0,137,123,0.12);   color: #00897B; }
+.lane-marketplace { background: rgba(251,140,0,0.12);   color: #FB8C00; }
+```
+
+All badges: border-radius 100px, padding 4px 12px,
+font-size 12px, font-weight 600, letter-spacing 0.05em
+These classes must be consistent across every page and component.
+
+---
+
+### GLOBAL UI RULES
+- Deep Navy (#0A1A2F) is the dominant background — lean into it
+- Gold (#D4A857) is a signal — every use must be intentional and earned
+- Off-White (#F5F5F2) is the text color on dark surfaces
+- Readiness Green (#00C853) is ONLY for readiness state signals — never decorative
+- No light backgrounds on full-page sections except Intent Cards
+- No stock photography — system UI mockups and data visualizations only
+- No rounded hero sections or colorful blobs — this is institutional, not startup
+- Every shadow on dark surfaces uses rgba(0,0,0,0.40+) — deep, not soft
+- All interactive elements: keyboard navigable, ARIA labeled
+- Minimum 4.5:1 contrast ratio on all text
+- This surface must feel heavier, more authoritative, and more premium
+  than every other surface in the ecosystem
+- The final result must look like the most serious B2B institutional
+  platform ever built — federal authority, world-class execution
+
+---
+
+### RESPONSIVE
+Breakpoints: mobile < 640px, tablet 640–1024px, desktop > 1024px
+
+Mobile:
+- Hero: single column, H1 scales to 44px, hide dashboard mockup
+- Intent Cards: single column, full width
+- Lane cards: 2-column grid
+- Nav: gold hamburger → full-screen Navy overlay
+- Touch targets: 48px minimum height
+- Footer: single column stack
+
+---
+
+## UPDATED FORM RULES
+
+Required field indicator:
+- Asterisk in #D4A857 after label
+
+Error state:
+- Border #EF4444, background rgba(239,68,68,0.05)
+- Error message: 12px #EF4444 below field, fade-in
+
+Submit buttons:
+- "Send" / "Submit" — full width
+  Background #D4A857 text #0A1A2F weight 700 16px
+  Padding 16px border-radius 10px
+  Hover: #E8C97A translateY(-1px)
+  box-shadow 0 6px 24px rgba(212,168,87,0.25)
+  Loading state: spinner replaces text
+
+---
+
+## FOOTER REDESIGN
+
+Current: tiny minimal footer — barely exists
+New:
+
+Background: #050F1C
+Border-top: 1px solid rgba(212,168,87,0.12)
+Padding: 80px 0 40px
+
+4-column layout:
+
+Column 1 — Brand:
+- "Misconi USA" #F5F5F2 weight 800 20px
+- 2px solid #D4A857 28px wide rule below wordmark
+- Tagline: "The Readiness Company" 14px rgba(245,245,242,0.45)
+- Email: "info@misconiusa.com" 14px #D4A857 mt-4
+- Small green ready badge: "● System Active" 12px #00C853
+
+Column 2 — Navigation:
+Label: "NAVIGATION" 11px uppercase rgba(245,245,242,0.30) weight 700
+Links: Opportunities, Pathways, Subscribe, Contact
+14px rgba(245,245,242,0.55), hover #D4A857 transition 0.2s
+
+Column 3 — Ecosystem:
+Label: "ECOSYSTEM" same style
+Links: GYBS, Misconi USA Network, SBAReady, Distribution, Inc
+14px rgba(245,245,242,0.55), hover #D4A857
+
+Column 4 — Legal:
+Label: "LEGAL" same style
+Links: Privacy Policy, Terms of Use
+14px rgba(245,245,242,0.55)
+
+Bottom strip:
+1px solid rgba(255,255,255,0.05) border-top mt-12 pt-8
+Left: "© 2025 Misconi USA. All rights reserved." 13px rgba(245,245,242,0.30)
+Right: "Prime Agent Surface" 13px #D4A857 weight 600
+
+---
+
+## SECTION RHYTHM (ALTERNATING BACKGROUNDS)
+
+1. Hero → #0A1A2F (Dark Navy)
+2. Who We Are → #F8FAFC (Light)
+3. What Makes Us Different → #0A1A2F (Dark Navy)
+4. Three Opportunity Cards → #FFFFFF (White)
+5. Subscription Gateway → #071422 (Deeper Navy)
+6. Readiness Pathways → #F8FAFC (Light)
+7. How It Works → #0A1A2F (Dark Navy)
+8. About Misconi USA → #F8FAFC (Light)
+9. Contact → #0A1A2F (Dark Navy)
+10. Footer → #050F1C (Deepest Navy)
+
+This rhythm creates visual breathing — users never feel stuck
+in the same visual environment for too long.
+
+---
+
+## UPDATED GLOBAL UI RULES
+
+- Deep Navy is dominant — lean into it, do not fight it
+- Gold is a signal — every single use must be earned and intentional
+- No light backgrounds on more than 2 consecutive sections
+- No stock photography — dashboard mockups and system UI only
+- No rounded blobs, gradients on buttons, or startup-style illustrations
+- Every section needs: label + H2 + supporting text + content + optional CTA
+- Every card needs: hover state, active state, and focus state
+- Every button needs: hover, active, focus, loading, and disabled states
+- All form inputs need: default, hover, focus, error, and success states
+- Shadows on dark surfaces: rgba(0,0,0,0.40) minimum — deep, not soft
+- Shadows on light surfaces: rgba(0,0,0,0.08) maximum — subtle
+- All text on dark backgrounds passes 4.5:1 contrast minimum
+- All interactive elements are keyboard navigable
+- ARIA labels on all form elements, buttons, and icons
+- Lazy load all images and mockup assets
+- No lorem ipsum — every element uses real content
+
+---
+
+## UPDATED RESPONSIVE RULES
+
+Mobile < 640px:
+- Nav: gold hamburger → full-screen Navy overlay
+- Hero: single column, H1 44px, hide dashboard mockup
+- Opportunity cards: single column
+- Pathway cards: 2-column grid
+- How It Works: vertical stepper
+- Contact forms: stack vertically, full width
+- Footer: single column
+- All touch targets: minimum 48px height
+
+Tablet 640–1024px:
+- 2-column grids where applicable
+- Pathway cards: 2×4 grid
+- Hero: single column, mockup below content
+
+---
+
+## WORLD-CLASS ANIMATION SYSTEM
+
+Add professional, world-class animations to the entire MisconiUSA.com website. Every element should feel alive, intentional, and smooth. Reference quality: Linear.app, Stripe, and Vercel. Nothing should feel cheap or jarring.
+
+### STEP 1 — INSTALL DEPENDENCIES
+
+Run in terminal:
+```bash
+npm install framer-motion
+npm install @studio-freight/lenis
+```
+
+### STEP 2 — SMOOTH SCROLL SETUP
+
+Create a new file: `lib/lenis.ts`
+```typescript
+import Lenis from '@studio-freight/lenis'
+
+let lenis: Lenis | null = null
+
+export function initLenis() {
+  lenis = new Lenis({
+    duration: 1.4,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 0.8,
+    touchMultiplier: 1.5,
+  })
+
+  function raf(time: number) {
+    lenis?.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+
+  return lenis
+}
+
+export function getLenis() {
+  return lenis
+}
+```
+
+In `app/layout.tsx` add:
+```typescript
+'use client'
+import { useEffect } from 'react'
+import { initLenis } from '@/lib/lenis'
+
+// Inside the root layout component:
+useEffect(() => {
+  const lenis = initLenis()
+  return () => lenis.destroy()
+}, [])
+```
+
+### STEP 3 — CREATE ANIMATION VARIANTS FILE
+
+Create: `lib/animations.ts`
+```typescript
+export const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 32
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const fadeUpSlow = {
+  hidden: { opacity: 0, y: 48 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.90,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.60,
+      ease: 'easeOut'
+    }
+  }
+}
+
+export const fadeLeft = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.70,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const fadeRight = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.70,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const scaleIn = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.60,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.10,
+      delayChildren: 0.05
+    }
+  }
+}
+
+export const staggerContainerFast = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.02
+    }
+  }
+}
+
+export const staggerContainerSlow = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.10
+    }
+  }
+}
+
+export const cardHover = {
+  rest: {
+    y: 0,
+    boxShadow: '0 1px 3px rgba(0,0,0,0.12)'
+  },
+  hover: {
+    y: -5,
+    boxShadow: '0 20px 60px rgba(0,0,0,0.25)',
+    transition: {
+      duration: 0.28,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const goldBorderHover = {
+  rest: { borderColor: 'rgba(232,228,220,1)' },
+  hover: {
+    borderColor: '#D4A857',
+    transition: { duration: 0.22, ease: 'easeOut' }
+  }
+}
+
+export const lineGrow = {
+  hidden: { scaleX: 0, originX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: {
+      duration: 0.90,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const counterVariant = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.50,
+      ease: 'easeOut'
+    }
+  }
+}
+
+export const pulseGold = {
+  animate: {
+    boxShadow: [
+      '0 8px 32px rgba(212,168,87,0.20)',
+      '0 8px 48px rgba(212,168,87,0.40)',
+      '0 8px 32px rgba(212,168,87,0.20)',
+    ],
+    transition: {
+      duration: 2.8,
+      repeat: Infinity,
+      ease: 'easeInOut'
+    }
+  }
+}
+
+export const breathe = {
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      ease: 'easeInOut'
+    }
+  }
+}
+
+export const dotPulse = {
+  animate: {
+    opacity: [1, 0.25, 1],
+    scale: [1, 1.15, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: 'easeInOut'
+    }
+  }
+}
+
+export const stepCircle = {
+  hidden: { scale: 0.6, opacity: 0, backgroundColor: 'rgba(212,168,87,0)' },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    backgroundColor: '#D4A857',
+    transition: {
+      duration: 0.55,
+      ease: [0.21, 0.47, 0.32, 0.98]
+    }
+  }
+}
+
+export const dashLine = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+      ease: 'easeInOut'
+    }
+  }
+}
+
+export const navLink = {
+  rest: { y: 0, color: 'rgba(245,245,242,0.65)' },
+  hover: {
+    y: -1,
+    color: '#F5F5F2',
+    transition: { duration: 0.18, ease: 'easeOut' }
+  }
+}
+
+export const overlayReveal = {
+  hidden: { opacity: 0, backdropFilter: 'blur(0px)' },
+  visible: {
+    opacity: 1,
+    backdropFilter: 'blur(24px)',
+    transition: { duration: 0.40, ease: 'easeOut' }
+  }
+}
+```
+
+### STEP 4 — CREATE REUSABLE ANIMATED COMPONENTS
+
+Create: `components/ui/AnimateIn.tsx`
+```typescript
+'use client'
+import { motion, useInView } from 'framer-motion'
+import { useRef, ReactNode } from 'react'
+import { fadeUp } from '@/lib/animations'
+
+interface AnimateInProps {
+  children: ReactNode
+  delay?: number
+  variant?: 'fadeUp' | 'fadeIn' | 'fadeLeft' | 'fadeRight' | 'scaleIn'
+  className?: string
+  once?: boolean
+}
+
+const variantMap = {
+  fadeUp: {
+    hidden: { opacity: 0, y: 32 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        delay,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    })
+  },
+  fadeIn: {
+    hidden: { opacity: 0 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      transition: { duration: 0.55, delay, ease: 'easeOut' }
+    })
+  },
+  fadeLeft: {
+    hidden: { opacity: 0, x: -40 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.70,
+        delay,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    })
+  },
+  fadeRight: {
+    hidden: { opacity: 0, x: 40 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.70,
+        delay,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    })
+  },
+  scaleIn: {
+    hidden: { opacity: 0, scale: 0.92 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.60,
+        delay,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    })
+  }
+}
+
+export default function AnimateIn({
+  children,
+  delay = 0,
+  variant = 'fadeUp',
+  className,
+  once = true
+}: AnimateInProps) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once, margin: '-80px 0px' })
+  const v = variantMap[variant]
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={{
+        hidden: v.hidden,
+        visible: v.visible(delay)
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+```
+
+Create: `components/ui/StaggerGroup.tsx`
+```typescript
+'use client'
+import { motion, useInView } from 'framer-motion'
+import { useRef, ReactNode } from 'react'
+
+interface StaggerGroupProps {
+  children: ReactNode
+  className?: string
+  stagger?: number
+  delay?: number
+}
+
+export default function StaggerGroup({
+  children,
+  className,
+  stagger = 0.10,
+  delay = 0.05
+}: StaggerGroupProps) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px 0px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: stagger,
+            delayChildren: delay
+          }
+        }
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+```
+
+Create: `components/ui/StaggerItem.tsx`
+```typescript
+'use client'
+import { motion, ReactNode } from 'framer-motion'
+
+interface StaggerItemProps {
+  children: ReactNode
+  className?: string
+}
+
+export default function StaggerItem({ children, className }: StaggerItemProps) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 28 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.60,
+            ease: [0.21, 0.47, 0.32, 0.98]
+          }
+        }
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+```
+
+Create: `components/ui/AnimatedCounter.tsx`
+```typescript
+'use client'
+import { useInView, useMotionValue, useSpring } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+
+interface AnimatedCounterProps {
+  value: number
+  suffix?: string
+  prefix?: string
+  className?: string
+}
+
+export default function AnimatedCounter({
+  value,
+  suffix = '',
+  prefix = '',
+  className
+}: AnimatedCounterProps) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-40px 0px' })
+  const motionVal = useMotionValue(0)
+  const spring = useSpring(motionVal, {
+    stiffness: 80,
+    damping: 20,
+    restDelta: 0.5
+  })
+
+  useEffect(() => {
+    if (inView) motionVal.set(value)
+  }, [inView, value, motionVal])
+
+  useEffect(() => {
+    spring.on('change', (v) => {
+      if (ref.current) {
+        ref.current.textContent = prefix + Math.floor(v).toLocaleString() + suffix
+      }
+    })
+  }, [spring, prefix, suffix])
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}0{suffix}
+    </span>
+  )
+}
+```
+
+### STEP 5 — APPLY ANIMATIONS SECTION BY SECTION
+
+Navigation:
+- Wrap the entire nav in `motion.nav` with `initial={{ y: -80, opacity: 0 }}` and `animate={{ y: 0, opacity: 1 }}`.
+- Each nav link should use `motion.a` with hover lift.
+- CTA button should use gold pulse and subtle scale/tap motion.
+
+Hero, trust bar, Who We Are, What Makes Us Different, Opportunity Cards, Subscription Gateway, Readiness Pathways, How It Works, About Misconi USA, Contact, Footer:
+- Apply the motion patterns listed in the user spec section-by-section.
+- Keep stagger order matching reading order.
+- Use only professional easing: `[0.21, 0.47, 0.32, 0.98]` or `easeOut`.
+- Keep scroll-triggered animations `once: true` with `margin: '-80px 0px'`.
+
+### STEP 6 — SCROLL PROGRESS INDICATOR
+
+Add a top progress bar using `framer-motion` and `useScroll`, and render it as the first child in `app/layout.tsx`.
+
+### STEP 7 — PAGE TRANSITION
+
+Add `app/template.tsx` as a client component using `motion.div` with a subtle page fade/slide transition.
+
+### STEP 8 — GLOBAL ANIMATION RULES
+
+- Never animate visible content without delay.
+- Never use `opacity: 0` without animating to 1.
+- Reduce motion values by 50% on mobile where needed.
+- Disable heavy animation for reduced-motion users.
+- Cards must always have hover and tap states.
+- Gold pulsing animations belong only on primary CTAs.
+- The overall feeling must be smooth, confident, measured, and premium.
+
+Add to `globals.css`:
+```css
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+```
+

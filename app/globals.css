@@ -3,15 +3,71 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #0f172a;
-  --background: #ffffff;
+  /* Core Brand */
+  --color-navy: #0A1A2F;
+  --color-navy-mid: #0F2444;
+  --color-navy-light: #1A3050;
+  --color-navy-surface: #162640;
+
+  /* Gold */
+  --color-gold: #D4A857;
+  --color-gold-dark: #B8902F;
+  --color-gold-light: #E8C97A;
+  --color-gold-glow: rgba(212,168,87,0.15);
+  --color-gold-tint: rgba(212,168,87,0.08);
+
+  /* Surfaces */
+  --color-off-white: #F5F5F2;
+  --color-white: #FFFFFF;
+  --color-surface-dark: #071422;
+  --color-surface-card: rgba(255,255,255,0.04);
+
+  /* Readiness Signal */
+  --color-ready: #00C853;
+  --color-ready-glow: rgba(0,200,83,0.15);
+
+  /* Typography */
+  --color-text-primary: #F5F5F2;
+  --color-text-body: rgba(245,245,242,0.75);
+  --color-text-muted: rgba(245,245,242,0.45);
+  --color-text-dark: #0A1A2F;
+
+  /* Borders */
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-mid: rgba(255,255,255,0.12);
+  --color-border-gold: rgba(212,168,87,0.35);
+  --color-border-gold-active: #D4A857;
+
+  /* Intent Cards (light surface) */
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #E8E4DC;
+  --color-card-border-hover: #D4A857;
+  --color-card-text: #0A1A2F;
+
+  /* Metadata — Readiness States */
+  --badge-identity: #9E9E9E;
+  --badge-readiness: #00C853;
+  --badge-correction: #FF9800;
+  --badge-activation: #2196F3;
+
+  /* Metadata — Lanes */
+  --lane-supplier: #1A73E8;
+  --lane-buyer: #00A86B;
+  --lane-partner: #6A1B9A;
+  --lane-agency: #0A1A2F;
+  --lane-readiness: #00897B;
+  --lane-marketplace: #FB8C00;
+
+  /* Base foreground/background for app */
+  --foreground: var(--color-text-dark);
+  --background: var(--color-white);
   --muted: #64748b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: #f1f5f9;
-    --background: #0f172a;
+    --foreground: var(--color-text-primary);
+    --background: var(--color-surface-dark);
     --muted: #94a3b8;
   }
 }
@@ -27,6 +83,97 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #334e68;
+  outline: 2px solid var(--color-gold);
   outline-offset: 2px;
+}
+
+/* Hero background blueprint pattern */
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-navy);
+}
+
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background-image: linear-gradient(
+      135deg,
+      rgba(212, 168, 87, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      225deg,
+      rgba(212, 168, 87, 0.06) 1px,
+      transparent 1px
+    );
+  background-size: 80px 80px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(212, 168, 87, 0.16), transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(0, 200, 83, 0.10), transparent 55%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-shell-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-pulse-dot {
+  box-shadow: 0 0 0 0 rgba(212, 168, 87, 0.5);
+  animation: hero-pulse 2s infinite;
+}
+
+@keyframes hero-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 168, 87, 0.5);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 14px rgba(212, 168, 87, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 168, 87, 0);
+  }
+}
+
+.hero-dashboard-card {
+  animation: hero-card-breathe 5s ease-in-out infinite;
+}
+
+@keyframes hero-card-breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.pathway-card:hover {
+  border-color: var(--accent-border);
+  background-color: var(--accent-bg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+  transform: translateY(-4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

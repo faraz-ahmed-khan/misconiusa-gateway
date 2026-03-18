@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Mock data for API routes.
  * No database; replace with real data/Zoho when backend is implemented.
  */
@@ -68,4 +68,10 @@ export const SUBSCRIPTION_PACK: SubscriptionPack = {
   description:
     "Your subscription activates your readiness routing, unlocks your pathway, and enables opportunity eligibility. Subscription is required for all customers entering the readiness system.",
   ctaText: "Subscribe & Begin",
+  ctaHref: "/subscribe",
+  features: [
+    "Activates your readiness routing immediately",
+    "Unlocks your assigned pathway",
+    "Enables full opportunity eligibility",
+  ],
 };
