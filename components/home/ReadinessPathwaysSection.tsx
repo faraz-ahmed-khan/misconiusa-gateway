@@ -17,6 +17,7 @@ interface ReadinessPathwaysSectionProps {
 export function ReadinessPathwaysSection({ pathways }: ReadinessPathwaysSectionProps) {
   return (
     <Section className="bg-[#F8FAFC]">
+      
       <div className="text-center">
         <AnimateIn delay={0} variant="fadeUp"><p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#0057B8]">PATHWAY SYSTEM</p></AnimateIn>
         <AnimateIn delay={0.1} variant="fadeUp"><h2 className="mt-3 text-[44px] font-semibold leading-[1.15] text-[#0F172A]">Readiness Pathways</h2></AnimateIn>
