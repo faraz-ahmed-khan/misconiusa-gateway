@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
@@ -16,7 +16,6 @@ export function ContactSection() {
         <AnimateIn variant="fadeLeft" delay={0.1}><div className="rounded-[18px] border border-[color:var(--color-border-mid)] bg-[color:var(--color-surface-dark)]/90 p-6 shadow-[0_26px_80px_rgba(0,0,0,0.75)]"><h3 className="text-lg font-medium text-[color:var(--color-text-primary)]">General Contact Form</h3><p className="mt-2 text-xs uppercase tracking-[0.14em] text-[color:var(--color-text-muted)]">Routed to Prime Agent support</p><div className="mt-5"><GeneralContactForm /></div></div></AnimateIn>
         <AnimateIn variant="fadeRight" delay={0.1}><div className="rounded-[18px] border border-[color:var(--color-border-mid)] bg-[color:var(--color-surface-dark)]/90 p-6 shadow-[0_26px_80px_rgba(0,0,0,0.75)]"><h3 className="text-lg font-medium text-[color:var(--color-text-primary)]">Supplier Interest Form</h3><p className="mt-2 text-xs uppercase tracking-[0.14em] text-[color:var(--color-text-muted)]">Routed to Supplier Readiness</p><div className="mt-5"><SupplierInterestForm /></div></div></AnimateIn>
       </div>
-      <p className="mt-8 text-sm text-[color:var(--color-text-body)]">Footer contact: <a href="mailto:info@misconiusa.com" className="font-medium text-[color:var(--color-gold-light)] hover:underline">info@misconiusa.com</a></p>
     </Section>
   );
 }
