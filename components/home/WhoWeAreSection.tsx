@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
@@ -27,22 +27,22 @@ export function WhoWeAreSection() {
             <StaggerGroup stagger={0.12} delay={0.15} className="space-y-6">
               <StaggerItem>
                 <div>
-                  <p className="text-[48px] font-black leading-none text-[color:var(--color-gold)]">5</p>
-                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Surfaces governed by the Prime Agent</p>
+                  <p className="text-[48px] font-black leading-none text-[color:var(--color-gold)]">3</p>
+                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Readiness Lanes</p>
                 </div>
               </StaggerItem>
               <div className="h-px bg-[rgba(255,255,255,0.06)]" />
               <StaggerItem>
                 <div>
                   <p className="text-[48px] font-black leading-none text-[color:var(--color-gold)]">6</p>
-                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Operational lanes managed in one system</p>
+                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Readiness Pathways</p>
                 </div>
               </StaggerItem>
               <div className="h-px bg-[rgba(255,255,255,0.06)]" />
               <StaggerItem>
                 <div>
-                  <p className="text-[48px] font-black leading-none text-[color:var(--color-gold)]">8</p>
-                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Readiness packs aligned to governed pathways</p>
+                  <p className="text-[48px] font-black leading-none text-[color:var(--color-gold)]">3</p>
+                  <p className="mt-1 text-[14px] text-[color:var(--color-text-body)]">Subscription Tiers</p>
                 </div>
               </StaggerItem>
             </StaggerGroup>

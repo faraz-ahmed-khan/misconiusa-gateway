@@ -6,11 +6,11 @@ import { Section } from "@/components/shared/Section";
 import AnimateIn from "@/components/ui/AnimateIn";
 
 const STEPS = [
-  { title: "Subscribe", description: "Subscribe to activate your readiness routing." },
-  { title: "Complete GYBS", description: "Complete GYBS to receive your Business Score." },
-  { title: "Enter Pathway", description: "Enter your assigned readiness pathway." },
-  { title: "Complete Requirements", description: "Complete your pathway readiness requirements." },
-  { title: "Unlock Opportunities", description: "Unlock opportunities in your customer, product, or supplier lane." },
+  { title: "Get Your Business Score", description: "Start at GetYourBusinessScore.com — the free national readiness gateway." },
+  { title: "Receive Your Score", description: "Get your Business Score (0–100), readiness level, lane, and corrections." },
+  { title: "Choose Your Subscription", description: "Select Free, Basic, or Enterprise based on your readiness goals." },
+  { title: "Enter Your Pathway", description: "Your score routes you into the correct readiness pathway automatically." },
+  { title: "Unlock Opportunities", description: "Enterprise subscribers unlock routing eligibility and opportunities." },
 ];
 
 export function HowItWorksSection() {

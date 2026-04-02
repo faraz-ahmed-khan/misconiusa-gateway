@@ -1,6 +1,6 @@
 /**
  * GET /api/pathways
- * Returns all eight readiness pathways.
+ * Returns all six readiness pathways.
  * Mock data only; no database.
  */
 

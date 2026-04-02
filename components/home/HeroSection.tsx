@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ROUTES, CTA_TEXT, GYBS_INTAKE_URL } from "@/lib/constants";
+import { GYBS_SCORE_URL } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
 import StaggerItem from "@/components/ui/StaggerItem";
@@ -17,7 +17,7 @@ export function HeroSection() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-gold)] bg-[color:var(--color-gold-tint)] px-3 py-1">
                 <span className="hero-pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-gold)]">
-                  Prime Agent Surface — Misconi USA
+                  Misconi USA — The Readiness Company
                 </span>
               </div>
             </AnimateIn>
@@ -25,54 +25,21 @@ export function HeroSection() {
             <div className="mt-6">
               <AnimateIn delay={0.22} variant="fadeUp">
                 <h1 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[color:var(--color-text-primary)] sm:text-5xl lg:text-[3.2rem]">
-                  <span>Your Readiness and Opportunity </span>
-                </h1>
-              </AnimateIn>
-              <AnimateIn delay={0.34} variant="fadeUp">
-                <h1 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[color:var(--color-text-primary)] sm:text-5xl lg:text-[3.2rem]">
-                  <span className="text-[color:var(--color-gold)]">Gateway</span>
+                  Your Business. Ready for What&apos;s Next.
                 </h1>
               </AnimateIn>
             </div>
 
             <AnimateIn delay={0.54} variant="fadeUp">
               <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-[color:var(--color-text-body)]">
-                Choose your readiness pathway. Your Business Score and subscription determine your route and opportunity eligibility. Get ready to ascend your business.
+                Start at GetYourBusinessScore.com — the national gateway to your Business Score, readiness level, and next steps.
               </p>
             </AnimateIn>
 
             <AnimateIn delay={0.6} variant="fadeUp">
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-[color:var(--color-text-body)]">
-                Misconi USA is the Prime Agent operating the national Readiness and Opportunity Gateway. Begin your readiness journey, unlock your pathway, and access opportunities across customer, product, and supplier lanes.
+                Readiness determines opportunity. Misconi USA gives you the structure, education, and support to move forward with confidence.
               </p>
-            </AnimateIn>
-
-            <AnimateIn delay={0.68} variant="fadeUp">
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-[13px] font-medium text-[color:var(--color-text-body)]">
-                <span className="uppercase tracking-[0.12em] text-[color:var(--color-text-muted)]">This surface serves:</span>
-                <StaggerGroup stagger={0.07} delay={0.18} className="flex flex-wrap gap-3">
-                  <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-supplier)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-supplier)]">
-                      Supplier
-                    </span>
-                  </StaggerItem>
-                  <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-buyer)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-buyer)]">
-                      Buyer
-                    </span>
-                  </StaggerItem>
-                  <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-partner)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-partner)]">
-                      Partner
-                    </span>
-                  </StaggerItem>
-                  <StaggerItem>
-                    <span className="rounded-full border border-[rgba(245,245,242,0.65)] bg-[rgba(245,245,242,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-text-primary)] shadow-[0_0_0_1px_rgba(10,26,47,0.2)]">
-                      Agency
-                    </span>
-                  </StaggerItem>
-                </StaggerGroup>
-              </div>
             </AnimateIn>
 
             <AnimateIn delay={0.78} variant="fadeUp">
@@ -89,30 +56,32 @@ export function HeroSection() {
                   }}
                   transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Link
-                    href={ROUTES.subscribe}
+                  <a
+                    href={GYBS_SCORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-[10px] bg-[color:var(--color-gold)] px-6 py-3 text-[15px] font-semibold text-[color:var(--color-text-dark)] shadow-[0_8px_32px_rgba(0,0,0,0.45)] transition-transform transition-shadow duration-200 hover:bg-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
                   >
-                    {CTA_TEXT.subscribeAndBegin}
-                  </Link>
+                    Get Your Business Score
+                  </a>
                 </motion.div>
 
                 <motion.div whileHover={{ y: -2, borderColor: "rgba(245,245,242,0.60)" }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
                   <a
-                    href={GYBS_INTAKE_URL}
+                    href="#subscriptions"
                     className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(245,245,242,0.48)] bg-[rgba(245,245,242,0.04)] px-6 py-3 text-[14px] font-medium text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.72)] hover:bg-[rgba(245,245,242,0.08)] hover:text-[color:var(--color-white)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
                   >
-                    {CTA_TEXT.startIntake}
+                    Compare Subscriptions
                   </a>
                 </motion.div>
 
                 <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.96 }} transition={{ duration: 0.2 }}>
-                  <Link
-                    href={ROUTES.opportunities}
+                  <a
+                    href="#opportunities"
                     className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(245,245,242,0.28)] bg-[rgba(245,245,242,0.03)] px-5 py-2.5 text-[14px] font-medium text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.56)] hover:bg-[rgba(245,245,242,0.06)] hover:text-[color:var(--color-white)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
                   >
-                    {CTA_TEXT.viewOpportunities}
-                  </Link>
+                    Explore Opportunities
+                  </a>
                 </motion.div>
               </div>
             </AnimateIn>
@@ -144,10 +113,9 @@ export function HeroSection() {
 
                 <StaggerGroup stagger={0.1} delay={0.8} className="mt-4 grid gap-3 text-xs text-[color:var(--color-text-body)]">
                   {[
-                    { label: "Supplier Lane", color: "var(--lane-supplier)", value: "Validated" },
-                    { label: "Buyer Lane", color: "var(--lane-buyer)", value: "Active" },
-                    { label: "Partner Lane", color: "var(--lane-partner)", value: "Aligning" },
-                    { label: "Agency Lane", color: "var(--lane-agency)", value: "Governing" },
+                    { label: "Foundational Lane", color: "var(--lane-supplier)", value: "Level 1" },
+                    { label: "Guided Lane", color: "var(--lane-buyer)", value: "Level 2" },
+                    { label: "Opportunity Lane", color: "var(--lane-partner)", value: "Level 3" },
                   ].map((lane) => (
                     <StaggerItem key={lane.label}>
                       <div className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-card)] px-3 py-2">
@@ -165,13 +133,11 @@ export function HeroSection() {
                             className="h-1.5 rounded-full"
                             style={{
                               width:
-                                lane.label === "Supplier Lane"
+                                lane.label === "Foundational Lane"
                                   ? "82%"
-                                  : lane.label === "Buyer Lane"
+                                  : lane.label === "Guided Lane"
                                     ? "68%"
-                                    : lane.label === "Partner Lane"
-                                      ? "54%"
-                                      : "73%",
+                                    : "54%",
                               backgroundImage: `linear-gradient(90deg, rgba(212,168,87,0.5), ${lane.color})`,
                             }}
                           />
@@ -184,7 +150,7 @@ export function HeroSection() {
                 <div className="mt-5 flex items-center justify-between border-t border-[color:var(--color-border)] pt-4">
                   <div>
                     <p className="text-[11px] font-mono text-[color:var(--color-gold-light)]">UBID: #MCI-00742</p>
-                    <p className="mt-1 text-[11px] text-[color:var(--color-text-muted)]">Routed via Readiness Pathways</p>
+                    <p className="mt-1 text-[11px] text-[color:var(--color-text-muted)]">Routed via Readiness Score</p>
                   </div>
                   <div className="relative h-14 w-24 rounded-full border border-[color:var(--color-border-gold)]/80 bg-[rgba(10,26,47,0.9)]">
                     <div className="absolute inset-1 rounded-full border border-[rgba(212,168,87,0.35)]" />

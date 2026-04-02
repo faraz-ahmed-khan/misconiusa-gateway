@@ -1,9 +1,17 @@
-﻿/**
+/**
  * Mock data for API routes.
  * No database; replace with real data/Zoho when backend is implemented.
  */
 
-import type { OpportunityCard, OpportunityItem, Pathway, SubscriptionPack } from "./types";
+import type {
+  OpportunityCard,
+  OpportunityItem,
+  SubscriptionPack,
+  SubscriptionTier,
+} from "./types";
+
+// Pathways are defined in constants (single source of truth).
+export { PATHWAYS } from "./constants";
 
 // ——— Three Opportunity Cards (exact content from spec) ———
 export const OPPORTUNITY_CARDS: OpportunityCard[] = [
@@ -49,19 +57,7 @@ export const SUPPLIER_OPPORTUNITIES: OpportunityItem[] = [
   { id: "s3", title: "Supplier Compliance Lane", description: "Full validation pathway required." },
 ];
 
-// ——— Eight Readiness Pathways (official, complete) ———
-export const PATHWAYS: Pathway[] = [
-  { id: "business", name: "Business Readiness Pathway", description: "Core business readiness validation and routing." },
-  { id: "documentation", name: "Documentation Readiness Pathway", description: "Documentation and compliance verification." },
-  { id: "operational", name: "Operational Readiness Pathway", description: "Operational capacity and process validation." },
-  { id: "financial", name: "Financial Readiness Pathway", description: "Financial standing and capability verification." },
-  { id: "marketplace", name: "Marketplace Readiness Pathway", description: "Marketplace eligibility and listing readiness." },
-  { id: "procurement", name: "Procurement Readiness Pathway", description: "Procurement governance and approval flow." },
-  { id: "supplier", name: "Supplier Readiness Pathway", description: "Supplier qualification and satisfaction criteria." },
-  { id: "compliance", name: "Compliance Readiness Pathway", description: "Regulatory and policy compliance validation." },
-];
-
-// ——— Single Subscription Gateway Pack ———
+// ——— Legacy single pack (optional consumers) ———
 export const SUBSCRIPTION_PACK: SubscriptionPack = {
   id: "gateway-pack",
   name: "Subscription Gateway Pack",
@@ -75,3 +71,68 @@ export const SUBSCRIPTION_PACK: SubscriptionPack = {
     "Enables full opportunity eligibility",
   ],
 };
+
+// ——— Subscription tiers (homepage + subscribe) ———
+export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
+  {
+    id: "free",
+    badge: "FREE",
+    price: "$0",
+    title: "Score Only",
+    description: "See your lane. View your score, readiness level, pack, and corrections.",
+    features: [
+      { text: "Business Score (0–100)", included: true },
+      { text: "Readiness Level (1–3)", included: true },
+      { text: "Recommended Lane", included: true },
+      { text: "Assigned Pack", included: true },
+      { text: "Corrections List", included: true },
+      { text: "Education & Templates", included: false },
+      { text: "Team Access", included: false },
+    ],
+    ctaText: "Start Free",
+    ctaHref: "https://getyourbusinessscore.com",
+    ctaVariant: "secondary",
+  },
+  {
+    id: "basic",
+    badge: "BASIC",
+    price: "$49",
+    period: "/mo",
+    title: "Education & Support",
+    description: "Unlock education, templates, document support, and limited team access.",
+    features: [
+      { text: "Everything in Free", included: true },
+      { text: "Education & Templates", included: true },
+      { text: "Document Upload & Review", included: true },
+      { text: "Internal Scoring", included: true },
+      { text: "Team Access (Limited)", included: true },
+      { text: "Routing Eligibility", included: false },
+      { text: "Opportunity Eligibility", included: false },
+    ],
+    ctaText: "Upgrade to Basic",
+    ctaHref: "https://getyourbusinessscore.com/subscribe?tier=basic",
+    ctaVariant: "secondary",
+  },
+  {
+    id: "enterprise",
+    badge: "ENTERPRISE",
+    tag: "Most Complete",
+    price: "$199",
+    period: "/mo",
+    title: "Full Readiness Infrastructure",
+    description: "Unlock all lane features including Opportunity Lane, eligibility, and CUBE suite.",
+    features: [
+      { text: "Everything in Basic", included: true },
+      { text: "Unlimited Team Access", included: true },
+      { text: "Full Business Score Report", included: true },
+      { text: "Routing Eligibility", included: true },
+      { text: "Opportunity Eligibility", included: true },
+      { text: "CUBE Enterprise Suite", included: true },
+      { text: "Advanced Monitoring", included: true },
+    ],
+    ctaText: "Upgrade to Enterprise",
+    ctaHref: "https://getyourbusinessscore.com/subscribe?tier=enterprise",
+    ctaVariant: "primary",
+    highlighted: true,
+  },
+];

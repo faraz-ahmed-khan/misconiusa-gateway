@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Shared types for MisconiUSA.com
  * Operational gateway — forms, cards, subscription, pathways only.
  */
@@ -42,14 +42,17 @@ export interface OpportunityItem {
   description: string;
 }
 
-// ——— Readiness Pathways (eight only) ———
+// ——— Readiness Pathways ———
+export type PathwayColor = "blue" | "orange" | "green" | "purple";
+
 export interface Pathway {
   id: string;
   name: string;
   description: string;
+  color?: PathwayColor;
 }
 
-// ——— Subscription (single pack only) ———
+// ——— Subscription (single pack — legacy / optional) ———
 export interface SubscriptionPack {
   id: string;
   name: string;
@@ -57,6 +60,26 @@ export interface SubscriptionPack {
   ctaText: string;
   ctaHref?: string;
   features?: string[];
+}
+
+export interface SubscriptionFeatureRow {
+  text: string;
+  included: boolean;
+}
+
+export interface SubscriptionTier {
+  id: string;
+  badge: string;
+  price: string;
+  period?: string;
+  title: string;
+  description: string;
+  features: SubscriptionFeatureRow[];
+  ctaText: string;
+  ctaHref: string;
+  ctaVariant: "primary" | "secondary";
+  highlighted?: boolean;
+  tag?: string;
 }
 
 // ——— API responses ———

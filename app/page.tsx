@@ -1,9 +1,7 @@
-import {
-  OPPORTUNITY_CARDS,
-  PATHWAYS,
-  SUBSCRIPTION_PACK,
-} from "@/lib/mock-data";
+import { OPPORTUNITY_CARDS, PATHWAYS } from "@/lib/mock-data";
 import { HeroSection } from "@/components/home/HeroSection";
+import { ReadinessDoctrineSection } from "@/components/home/ReadinessDoctrineSection";
+import { LaneArchitectureSection } from "@/components/home/LaneArchitectureSection";
 import { WhoWeAreSection } from "@/components/home/WhoWeAreSection";
 import { WhatMakesUsDifferentSection } from "@/components/home/WhatMakesUsDifferentSection";
 import { OpportunityCardsSection } from "@/components/home/OpportunityCardsSection";
@@ -14,18 +12,18 @@ import { AboutSection } from "@/components/home/AboutSection";
 import { ContactSection } from "@/components/home/ContactSection";
 
 /**
- * Homepage — exact section order per spec:
- * 1. Hero, 2. Who We Are, 3. What Makes Us Different, 4. Three Opportunity Cards,
- * 5. Subscription Gateway, 6. Readiness Pathways, 7. How It Works, 8. About Misconi USA, 9. Contact
+ * Homepage — section order includes readiness doctrine and lanes after hero.
  */
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <ReadinessDoctrineSection />
+      <LaneArchitectureSection />
       <WhoWeAreSection />
       <WhatMakesUsDifferentSection />
       <OpportunityCardsSection cards={OPPORTUNITY_CARDS} />
-      <SubscriptionGatewaySection pack={SUBSCRIPTION_PACK} />
+      <SubscriptionGatewaySection />
       <ReadinessPathwaysSection pathways={PATHWAYS} />
       <HowItWorksSection />
       <AboutSection />
