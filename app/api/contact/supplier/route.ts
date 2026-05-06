@@ -58,7 +58,7 @@ export async function POST(request: Request): Promise<NextResponse<ApiResponse>>
           Company: result.data.company,
           Interest_Area_Supplier: result.data.interestArea,
           Product_Line: result.data.productLine,
-          Phone: result.data.phone,
+          Phone_Number: result.data.phone,
           Country: result.data.country,
           State: result.data.state,
           City: result.data.city,
