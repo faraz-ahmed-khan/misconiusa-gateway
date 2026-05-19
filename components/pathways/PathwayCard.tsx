@@ -1,6 +1,5 @@
-import Link from "next/link";
 import type { Pathway } from "@/lib/types";
-import { ROUTES } from "@/lib/constants";
+import { GYBS_BASE_URL } from "@/lib/constants";
 
 interface PathwayCardProps {
   pathway: Pathway;
@@ -53,8 +52,10 @@ const ACCENTS = [
 export function PathwayCard({ pathway, index }: PathwayCardProps) {
   const accent = ACCENTS[index % ACCENTS.length];
   return (
-    <Link
-      href={ROUTES.pathways}
+    <a
+      href={GYBS_BASE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className="group block rounded-[14px] border border-[color:var(--color-card-border)] bg-[color:var(--color-card-bg)] p-6 shadow-[0_14px_32px_rgba(10,26,47,0.06)] transition-transform transition-shadow transition-colors duration-200 hover:-translate-y-1 hover:border-[color:var(--color-card-border-hover)] hover:shadow-[0_22px_60px_rgba(10,26,47,0.14)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-off-white)]"
       style={{ borderTopWidth: 4, borderTopColor: accent.border }}
     >
@@ -71,6 +72,6 @@ export function PathwayCard({ pathway, index }: PathwayCardProps) {
           <p className="mt-2 text-[14px] leading-relaxed text-slate-600">{pathway.description}</p>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }

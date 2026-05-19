@@ -4,11 +4,14 @@ import { useState } from "react";
 import Image from 'next/image';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ROUTES, CTA_TEXT } from "@/lib/constants";
+import { NavLink } from "@/components/shared/NavLink";
+import { CTA_TEXT, GYBS_BUSINESS_INTAKE_URL, GYBS_SUPPLIER_INTAKE_URL, ROUTES } from "@/lib/constants";
 
 const NAV_ITEMS = [
   { label: "Opportunities", href: ROUTES.opportunities },
   { label: "Pathways", href: ROUTES.pathways },
+  { label: "Business Intake", href: GYBS_BUSINESS_INTAKE_URL },
+  { label: "Supplier Intake", href: GYBS_SUPPLIER_INTAKE_URL },
   { label: "Subscribe", href: ROUTES.subscribe },
   { label: "Contact", href: ROUTES.contactAnchor },
 ] as const;
@@ -32,7 +35,7 @@ export function Header() {
         <motion.nav initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }} className="hidden items-center gap-6 text-[15px] md:flex" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
             <motion.div key={item.href} whileHover={{ y: -1, color: "#F5F5F2" }} transition={{ duration: 0.18 }}>
-              <Link href={item.href} className="rounded-md text-[color:var(--color-text-body)] transition-colors duration-150 hover:text-[color:var(--color-text-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]">{item.label}</Link>
+              <NavLink href={item.href} className="rounded-md text-[color:var(--color-text-body)] transition-colors duration-150 hover:text-[color:var(--color-text-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]">{item.label}</NavLink>
             </motion.div>
           ))}
           <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.96 }} animate={{ boxShadow: ["0 4px 20px rgba(212,168,87,0.20)", "0 4px 32px rgba(212,168,87,0.45)", "0 4px 20px rgba(212,168,87,0.20)"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}>
@@ -47,14 +50,14 @@ export function Header() {
             <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6">
               <nav className="space-y-2 text-[16px]" aria-label="Mobile navigation">
                 {NAV_ITEMS.map((item) => (
-                  <Link
+                  <NavLink
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block rounded-md px-2 py-2 text-[color:var(--color-text-primary)] transition-colors duration-150 hover:bg-[rgba(248,250,252,0.06)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(10,26,47,0.98)]"
                   >
                     {item.label}
-                  </Link>
+                  </NavLink>
                 ))}
               </nav>
               <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>

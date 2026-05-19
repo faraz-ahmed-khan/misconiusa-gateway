@@ -1,10 +1,11 @@
 ﻿"use client";
 
-import Link from "next/link";
+import { GybsLink } from "@/components/shared/GybsLink";
+import { NavLink } from "@/components/shared/NavLink";
 import { Section } from "@/components/shared/Section";
 import { PathwayCard } from "@/components/pathways/PathwayCard";
 import type { Pathway } from "@/lib/types";
-import { ROUTES } from "@/lib/constants";
+import { CTA_TEXT, GYBS_BASE_URL } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
 import StaggerItem from "@/components/ui/StaggerItem";
@@ -35,11 +36,17 @@ export function ReadinessPathwaysSection({ pathways }: ReadinessPathwaysSectionP
           </StaggerItem>
         ))}
       </StaggerGroup>
-      <p className="mt-8 text-center">
-        <Link href={ROUTES.pathways} className="text-[14px] font-semibold text-[#0057B8] hover:text-[#003D8F] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0057B8] focus-visible:ring-offset-2 rounded">
+      <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <NavLink
+          href={GYBS_BASE_URL}
+          className="text-[14px] font-semibold text-[#0057B8] hover:text-[#003D8F] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0057B8] focus-visible:ring-offset-2 rounded"
+        >
           View all pathways →
-        </Link>
-      </p>
+        </NavLink>
+        <GybsLink href={GYBS_BASE_URL} variant="outline" className="!text-[#0057B8] !border-[#0057B8]">
+          {CTA_TEXT.getYourBusinessScore}
+        </GybsLink>
+      </div>
     </Section>
   );
 }

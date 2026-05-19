@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ROUTES, CTA_TEXT, GYBS_INTAKE_URL } from "@/lib/constants";
+import {
+  ROUTES,
+  CTA_TEXT,
+  GYBS_BASE_URL,
+  GYBS_BUSINESS_INTAKE_URL,
+  GYBS_PARTNER_URL,
+  GYBS_SUPPLIER_INTAKE_URL,
+} from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
 import StaggerItem from "@/components/ui/StaggerItem";
@@ -37,7 +44,7 @@ export function HeroSection() {
 
             <AnimateIn delay={0.54} variant="fadeUp">
               <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-[color:var(--color-text-body)]">
-                Choose your readiness pathway. Your Business Score and subscription determine your route and opportunity eligibility. Get ready to ascend your business.
+                Choose your readiness pathway. Complete intake in GYBS, subscribe to activate routing, and access governed opportunities across customer, product, and supplier lanes.
               </p>
             </AnimateIn>
 
@@ -52,19 +59,31 @@ export function HeroSection() {
                 <span className="uppercase tracking-[0.12em] text-[color:var(--color-text-muted)]">This surface serves:</span>
                 <StaggerGroup stagger={0.07} delay={0.18} className="flex flex-wrap gap-3">
                   <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-supplier)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-supplier)]">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-[color:var(--lane-buyer)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-buyer)] transition-colors hover:bg-[color:var(--lane-buyer)]/30"
+                    >
+                      Business
+                    </a>
+                  </StaggerItem>
+                  <StaggerItem>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-[color:var(--lane-supplier)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-supplier)] transition-colors hover:bg-[color:var(--lane-supplier)]/30"
+                    >
                       Supplier
-                    </span>
+                    </a>
                   </StaggerItem>
                   <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-buyer)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-buyer)]">
-                      Buyer
-                    </span>
-                  </StaggerItem>
-                  <StaggerItem>
-                    <span className="rounded-full bg-[color:var(--lane-partner)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-partner)]">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-[color:var(--lane-partner)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-partner)] transition-colors hover:bg-[color:var(--lane-partner)]/30"
+                    >
                       Partner
-                    </span>
+                    </a>
                   </StaggerItem>
                   <StaggerItem>
                     <span className="rounded-full border border-[rgba(245,245,242,0.65)] bg-[rgba(245,245,242,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-text-primary)] shadow-[0_0_0_1px_rgba(10,26,47,0.2)]">
@@ -89,20 +108,35 @@ export function HeroSection() {
                   }}
                   transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Link
-                    href={ROUTES.subscribe}
+                  <a
+                    href={GYBS_BUSINESS_INTAKE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-[10px] bg-[color:var(--color-gold)] px-6 py-3 text-[15px] font-semibold text-[color:var(--color-text-dark)] shadow-[0_8px_32px_rgba(0,0,0,0.45)] transition-transform transition-shadow duration-200 hover:bg-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
                   >
-                    {CTA_TEXT.subscribeAndBegin}
-                  </Link>
+                    {CTA_TEXT.businessIntake}
+                  </a>
+                </motion.div>
+
+                <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.96 }} transition={{ duration: 0.2 }}>
+                  <a
+                    href={GYBS_SUPPLIER_INTAKE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(245,245,242,0.48)] bg-[rgba(245,245,242,0.04)] px-6 py-3 text-[14px] font-medium text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.72)] hover:bg-[rgba(245,245,242,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
+                  >
+                    {CTA_TEXT.supplierIntake}
+                  </a>
                 </motion.div>
 
                 <motion.div whileHover={{ y: -2, borderColor: "rgba(245,245,242,0.60)" }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
                   <a
-                    href={GYBS_INTAKE_URL}
-                    className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(245,245,242,0.48)] bg-[rgba(245,245,242,0.04)] px-6 py-3 text-[14px] font-medium text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.72)] hover:bg-[rgba(245,245,242,0.08)] hover:text-[color:var(--color-white)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
+                    href={GYBS_BASE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(0,200,83,0.45)] bg-[rgba(0,200,83,0.10)] px-5 py-2.5 text-[14px] font-semibold text-[#00C853] transition-colors duration-200 hover:bg-[rgba(0,200,83,0.16)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
                   >
-                    {CTA_TEXT.startIntake}
+                    {CTA_TEXT.getYourBusinessScore}
                   </a>
                 </motion.div>
 
@@ -181,17 +215,19 @@ export function HeroSection() {
                   ))}
                 </StaggerGroup>
 
-                <div className="mt-5 flex items-center justify-between border-t border-[color:var(--color-border)] pt-4">
-                  <div>
-                    <p className="text-[11px] font-mono text-[color:var(--color-gold-light)]">UBID: #MCI-00742</p>
-                    <p className="mt-1 text-[11px] text-[color:var(--color-text-muted)]">Routed via Readiness Pathways</p>
-                  </div>
-                  <div className="relative h-14 w-24 rounded-full border border-[color:var(--color-border-gold)]/80 bg-[rgba(10,26,47,0.9)]">
-                    <div className="absolute inset-1 rounded-full border border-[rgba(212,168,87,0.35)]" />
-                    <div className="absolute inset-2 flex items-center justify-center">
-                      <span className="text-[13px] font-semibold text-[color:var(--color-gold-light)]">L2</span>
-                    </div>
-                  </div>
+                <div className="mt-5 border-t border-[color:var(--color-border)] pt-4">
+                  <p className="text-[12px] leading-relaxed text-[color:var(--color-text-body)]">
+                    Intake and scoring occur in GYBS. Misconi USA routes validated participants to governed pathways and
+                    opportunities.
+                  </p>
+                  <a
+                    href={GYBS_BUSINESS_INTAKE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-[12px] font-semibold text-[color:var(--color-gold-light)] hover:underline"
+                  >
+                    Begin business intake →
+                  </a>
                 </div>
               </motion.div>
               <div className="pointer-events-none absolute -inset-x-6 -bottom-6 -z-10 rotate-[-6deg] rounded-2xl border border-[rgba(148,163,184,0.35)] bg-[rgba(15,23,42,0.9)]" />

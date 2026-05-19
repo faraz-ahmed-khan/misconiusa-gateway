@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { GybsLink } from "@/components/shared/GybsLink";
 import { Section } from "@/components/shared/Section";
 import AnimateIn from "@/components/ui/AnimateIn";
+import { CTA_TEXT, GYBS_BASE_URL } from "@/lib/constants";
 
 const STEPS = [
   { title: "Subscribe", description: "Subscribe to activate your readiness routing." },
@@ -29,7 +31,7 @@ export function HowItWorksSection() {
     <Section className="bg-[#0A1A2F]">
       <AnimateIn variant="fadeUp" className="text-center">
         <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[rgba(212,168,87,0.8)]">THE PROCESS</p>
-        <h2 className="mt-3 text-[44px] font-semibold leading-[1.15] text-[color:var(--color-text-primary)]">How It Works</h2>
+        <h2 className="mt-3 text-[44px] font-semibold leading-[1.15] text-[color:var(--color-text-primary)]">How We Work</h2>
         <p className="mx-auto mt-3 max-w-2xl text-[18px] leading-[1.8] text-[rgba(245,245,242,0.6)]">This is the complete readiness → pathway → opportunity flow.</p>
       </AnimateIn>
       <div ref={containerRef} className="mt-10">
@@ -71,6 +73,9 @@ export function HowItWorksSection() {
           ))}
         </div>
       </div>
+      <AnimateIn delay={0.5} variant="fadeUp" className="mt-12 text-center">
+        <GybsLink href={GYBS_BASE_URL}>{CTA_TEXT.getYourBusinessScore}</GybsLink>
+      </AnimateIn>
     </Section>
   );
 }

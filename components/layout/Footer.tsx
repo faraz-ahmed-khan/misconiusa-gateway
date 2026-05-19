@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { ROUTES } from "@/lib/constants";
+import { NavLink } from "@/components/shared/NavLink";
+import { GYBS_BUSINESS_INTAKE_URL, GYBS_SUPPLIER_INTAKE_URL, ROUTES } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
 import StaggerItem from "@/components/ui/StaggerItem";
@@ -20,8 +21,15 @@ export function Footer() {
             </div>
             <a href="mailto:info@misconiusa.com" className="text-sm text-[color:var(--color-text-body)] hover:text-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050F1C] rounded">info@misconiusa.com</a>
             <StaggerGroup className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" stagger={0.12}>
-              {[{ href: ROUTES.opportunities, label: "Opportunities" }, { href: ROUTES.pathways, label: "Pathways" }, { href: ROUTES.subscribe, label: "Subscribe" }, { href: ROUTES.contactAnchor, label: "Contact" }].map((item) => (
-                <StaggerItem key={item.label}><Link href={item.href} className="text-[color:var(--color-text-body)] hover:text-[color:var(--color-gold-light)]">{item.label}</Link></StaggerItem>
+              {[
+                { href: ROUTES.opportunities, label: "Opportunities" },
+                { href: ROUTES.pathways, label: "Pathways" },
+                { href: GYBS_BUSINESS_INTAKE_URL, label: "Business Intake" },
+                { href: GYBS_SUPPLIER_INTAKE_URL, label: "Supplier Intake" },
+                { href: ROUTES.subscribe, label: "Subscribe" },
+                { href: ROUTES.contactAnchor, label: "Contact" },
+              ].map((item) => (
+                <StaggerItem key={item.label}><NavLink href={item.href} className="text-[color:var(--color-text-body)] hover:text-[color:var(--color-gold-light)]">{item.label}</NavLink></StaggerItem>
               ))}
             </StaggerGroup>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[color:var(--color-text-muted)]">
