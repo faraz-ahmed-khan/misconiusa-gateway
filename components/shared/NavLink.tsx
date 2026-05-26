@@ -8,6 +8,10 @@ interface NavLinkProps {
 }
 
 export function NavLink({ href, className, children, onClick }: NavLinkProps) {
+  if (!href) {
+    return <span className={className}>{children}</span>;
+  }
+
   const isExternal = href.startsWith("http://") || href.startsWith("https://");
 
   if (isExternal) {

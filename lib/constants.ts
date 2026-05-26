@@ -1,40 +1,18 @@
 /**
- * Site-wide constants.
- *
- * External operational endpoints:
- * - GYBS (Get Your Business Score): readiness intake and scoring (external)
- * - Misconi USA: https://misocniusa.vercel.app/
- * - Misconi USA Network: https://misconi-usa-network.vercel.app/
- *
- * MisconiUSA.com explains the ecosystem and routes intake to GYBS — it does not host intake forms.
+ * Site-wide constants. External GYBS URL: NEXT_PUBLIC_GYBS_URL in .env.local
  */
 
 function trimTrailingSlash(url: string): string {
   return url.replace(/\/$/, "");
 }
 
-const gybsBase =
-  process.env.NEXT_PUBLIC_GYBS_URL ?? "https://get-your-business-score-com.vercel.app";
+/** Single GYBS site URL from env — used for all GYBS / intake / partner links */
+export const GYBS_BASE_URL = trimTrailingSlash(process.env.NEXT_PUBLIC_GYBS_URL?.trim() ?? "");
 
-/** GYBS base URL (no trailing slash). */
-export const GYBS_BASE_URL = trimTrailingSlash(gybsBase);
-
-/** Business intake — routes to GYBS homepage */
-export const GYBS_BUSINESS_INTAKE_URL =
-  process.env.NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL ?? GYBS_BASE_URL;
-
-/** Supplier intake — routes to GYBS homepage */
-export const GYBS_SUPPLIER_INTAKE_URL =
-  process.env.NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL ?? GYBS_BASE_URL;
-
-/** Partner entry on GYBS — national readiness gateway home */
-export const GYBS_PARTNER_URL =
-  process.env.NEXT_PUBLIC_GYBS_PARTNER_URL ?? GYBS_BASE_URL;
-
-/** General GYBS navigation (homepage) */
+export const GYBS_BUSINESS_INTAKE_URL = GYBS_BASE_URL;
+export const GYBS_SUPPLIER_INTAKE_URL = GYBS_BASE_URL;
+export const GYBS_PARTNER_URL = GYBS_BASE_URL;
 export const GYBS_HOME_URL = GYBS_BASE_URL;
-
-/** @deprecated Use GYBS_HOME_URL or GYBS_BUSINESS_INTAKE_URL */
 export const GYBS_INTAKE_URL = GYBS_BASE_URL;
 
 export const ROUTES = {

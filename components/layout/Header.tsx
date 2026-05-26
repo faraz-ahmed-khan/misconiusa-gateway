@@ -34,7 +34,7 @@ export function Header() {
         </motion.div>
         <motion.nav initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }} className="hidden items-center gap-6 text-[15px] md:flex" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
-            <motion.div key={item.href} whileHover={{ y: -1, color: "#F5F5F2" }} transition={{ duration: 0.18 }}>
+            <motion.div key={item.label} whileHover={{ y: -1, color: "#F5F5F2" }} transition={{ duration: 0.18 }}>
               <NavLink href={item.href} className="rounded-md text-[color:var(--color-text-body)] transition-colors duration-150 hover:text-[color:var(--color-text-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]">{item.label}</NavLink>
             </motion.div>
           ))}
@@ -51,7 +51,7 @@ export function Header() {
               <nav className="space-y-2 text-[16px]" aria-label="Mobile navigation">
                 {NAV_ITEMS.map((item) => (
                   <NavLink
-                    key={item.href}
+                    key={item.label}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block rounded-md px-2 py-2 text-[color:var(--color-text-primary)] transition-colors duration-150 hover:bg-[rgba(248,250,252,0.06)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(10,26,47,0.98)]"
