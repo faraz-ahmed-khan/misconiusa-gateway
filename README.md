@@ -1,67 +1,55 @@
 # MisconiUSA.com
 
-MisconiUSA.com is the **Prime Agent's operational gateway**. It is not a marketing site, service catalog, or readiness intake tool. It has five responsibilities only:
+MisconiUSA.com is the **Prime Agent's operational gateway**. It presents the business, readiness ecosystem, and opportunity lanes — and routes intake to GYBS. It does **not** host readiness or supplier intake forms.
 
-1. Show opportunities (three opportunity cards and their subpages)
-2. Show pathways (Business Readiness Pathways)
-3. Show subscription (Subscription Gateway Pack)
-4. Provide contact (General Contact Form and Supplier Interest Form)
-5. Route users into GYBS for readiness (e.g. Start Intake)
+## Responsibilities
 
-Intent selection and authenticated experiences occur inside GYBS, not on MisconiUSA.com.
+1. Explain who Misconi USA is and what it offers
+2. Show who the gateway serves (businesses, suppliers, partners, agencies)
+3. Present opportunities (three opportunity cards and subpages)
+4. Present readiness pathways (eight governed pathways)
+5. Present subscription (Subscription Gateway Pack)
+6. Route users to GYBS for intake and scoring
+7. Provide Prime Agent contact (email only — no intake forms on this site)
+
+Intent selection and authenticated readiness experiences occur in **GYBS**, not on MisconiUSA.com.
 
 ## Stack
 
-- **Next.js** (latest stable) with App Router
+- **Next.js** (App Router)
 - **TypeScript**
 - **Tailwind CSS**
-- **Dummy backend**: Next.js API route handlers only; no database. Mock data and typed payloads. Zoho integration is not implemented yet.
+- API routes for mock data; Zoho contact APIs exist but are not used by the public site UI
 
 ## Commands
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
-
-# Build for production
 npm run build
 ```
 
-After `npm run dev`, open [http://localhost:3000](http://localhost:3000).
-
-## Dummy backend
-
-The app uses Next.js API route handlers as a dummy backend:
-
-- **POST /api/contact/general** — General Contact Form. Validates required fields and returns a success message. No redirect. Placeholder for future Zoho integration.
-- **POST /api/contact/supplier** — Supplier Interest Form. Same behavior; placeholder for Zoho.
-- **GET /api/opportunities** — Returns three opportunity cards and minimal opportunity lists per lane (customer, product, supplier).
-- **GET /api/pathways** — Returns all eight readiness pathways.
-- **GET /api/subscription** — Returns the single Subscription Gateway Pack.
-
-There is no real database and no real Zoho integration. Mock data lives in `lib/mock-data.ts`. Comments in the API routes indicate where a real backend or Zoho integration would replace the mock logic.
-
 ## Pages
 
-- **/** — Homepage (hero, who we are, what makes us different, three opportunity cards, subscription gateway, readiness pathways, how it works, about, contact)
-- **/opportunities** — Three opportunity cards with links to subpages
-- **/opportunities/customer** — Customer opportunities list
-- **/opportunities/product** — Product opportunities list
-- **/opportunities/supplier** — Supplier opportunities list
+- **/** — Homepage (Who We Are, What We Offer, Who We Serve, opportunities, subscription, pathways, How We Work, about, contact)
+- **/intake/business** — Business intake gateway → continues to GYBS
+- **/intake/supplier** — Supplier intake gateway → continues to GYBS
+- **/opportunities** — Three opportunity cards
+- **/opportunities/customer**, **/product**, **/supplier** — Lane opportunity explanations
 - **/pathways** — All eight readiness pathways
-- **/subscribe** — Subscription Gateway Pack (one pack only)
-- **/#contact** — Contact section on homepage (nav “Contact” scrolls here)
-- **/privacy** — Privacy Policy placeholder
-- **/terms** — Terms of Use placeholder
+- **/subscribe** — Subscription Gateway Pack
+- **/#contact** — Contact & routing (email + intake links, no forms)
+- **/privacy**, **/terms** — Legal placeholders
 
 ## Environment
 
-Optional:
+Optional GYBS URLs (default for all: `https://get-your-business-score-com.vercel.app/`):
 
-- `NEXT_PUBLIC_GYBS_URL` — Base URL for GYBS (e.g. for “Start Intake”). Defaults to a placeholder if unset.
+Env overrides:
+
+- `NEXT_PUBLIC_GYBS_URL` — GYBS base URL
+- `NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL` — Business intake on GYBS (overrides default)
+- `NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL` — Supplier intake on GYBS (overrides default)
 
 ## License
 

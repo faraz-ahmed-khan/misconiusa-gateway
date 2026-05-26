@@ -1,60 +1,19 @@
 /**
- * Site-wide constants.
- *
- * External operational endpoints:
- * - GYBS (Get Your Business Score): https://get-your-business-score-com.vercel.app/
- * - Misconi USA: https://misocniusa.vercel.app/
- * - Misconi USA Network: https://misconi-usa-network.vercel.app/
+ * Site-wide constants. External GYBS URL: NEXT_PUBLIC_GYBS_URL in .env.local
  */
 
-import type { Pathway } from "./types";
+function trimTrailingSlash(url: string): string {
+  return url.replace(/\/$/, "");
+}
 
-// ——— Readiness pathways (six) ———
-export const PATHWAYS: Pathway[] = [
-  {
-    id: "1",
-    name: "Business Readiness",
-    description: "Understand your business foundation and operational readiness.",
-    color: "blue",
-  },
-  {
-    id: "2",
-    name: "Supplier Readiness",
-    description: "Assess your readiness to work with suppliers and enter supply chains.",
-    color: "orange",
-  },
-  {
-    id: "3",
-    name: "Marketplace Readiness",
-    description: "Evaluate your readiness to enter marketplaces and sell products or services.",
-    color: "green",
-  },
-  {
-    id: "4",
-    name: "Distribution Readiness",
-    description: "Measure your readiness to distribute products and expand channels.",
-    color: "purple",
-  },
-  {
-    id: "5",
-    name: "Contract Readiness",
-    description: "Check your readiness to pursue contracts and structured opportunities.",
-    color: "blue",
-  },
-  {
-    id: "6",
-    name: "SBA Readiness",
-    description: "Review your readiness for SBA pathways and federal programs.",
-    color: "orange",
-  },
-];
+/** Single GYBS site URL from env — used for all GYBS / intake / partner links */
+export const GYBS_BASE_URL = trimTrailingSlash(process.env.NEXT_PUBLIC_GYBS_URL?.trim() ?? "");
 
-// Start Intake always routes into GYBS; env can override.
-export const GYBS_INTAKE_URL =
-  process.env.NEXT_PUBLIC_GYBS_URL ?? "https://get-your-business-score-com.vercel.app/";
-
-/** Primary national readiness gateway (score) */
-export const GYBS_SCORE_URL = "https://getyourbusinessscore.com";
+export const GYBS_BUSINESS_INTAKE_URL = GYBS_BASE_URL;
+export const GYBS_SUPPLIER_INTAKE_URL = GYBS_BASE_URL;
+export const GYBS_PARTNER_URL = GYBS_BASE_URL;
+export const GYBS_HOME_URL = GYBS_BASE_URL;
+export const GYBS_INTAKE_URL = GYBS_BASE_URL;
 
 export const ROUTES = {
   home: "/",
@@ -64,11 +23,17 @@ export const ROUTES = {
   opportunitiesSupplier: "/opportunities/supplier",
   pathways: "/pathways",
   subscribe: "/subscribe",
+  intakeBusiness: "/intake/business",
+  intakeSupplier: "/intake/supplier",
   contactAnchor: "/#contact",
 } as const;
 
 export const CTA_TEXT = {
   subscribeAndBegin: "Subscribe & Begin",
   startIntake: "Start Intake",
+  businessIntake: "Business Intake",
+  supplierIntake: "Supplier Intake",
+  continueToGybs: "Continue to GYBS",
+  getYourBusinessScore: "Get Your Business Score",
   viewOpportunities: "View Opportunities",
 } as const;

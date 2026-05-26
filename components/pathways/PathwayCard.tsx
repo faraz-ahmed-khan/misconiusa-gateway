@@ -1,5 +1,5 @@
-import type { Pathway, PathwayColor } from "@/lib/types";
-import { GYBS_SCORE_URL } from "@/lib/constants";
+import type { Pathway } from "@/lib/types";
+import { GYBS_BASE_URL } from "@/lib/constants";
 
 interface PathwayCardProps {
   pathway: Pathway;
@@ -49,19 +49,14 @@ const ACCENTS = [
   },
 ];
 
-const ACCENT_INDEX: Record<PathwayColor, number> = {
-  blue: 0,
-  orange: 1,
-  green: 2,
-  purple: 3,
-};
-
 export function PathwayCard({ pathway, index }: PathwayCardProps) {
-  const accentIndex = pathway.color != null ? ACCENT_INDEX[pathway.color] : index % ACCENTS.length;
-  const accent = ACCENTS[accentIndex % ACCENTS.length];
+  const accent = ACCENTS[index % ACCENTS.length];
   return (
-    <div
-      className="group rounded-[14px] border border-[color:var(--color-card-border)] bg-[color:var(--color-card-bg)] p-6 shadow-[0_14px_32px_rgba(10,26,47,0.06)] transition-transform transition-shadow transition-colors duration-200 hover:-translate-y-1 hover:border-[color:var(--color-card-border-hover)] hover:shadow-[0_22px_60px_rgba(10,26,47,0.14)]"
+    <a
+      href={GYBS_BASE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block rounded-[14px] border border-[color:var(--color-card-border)] bg-[color:var(--color-card-bg)] p-6 shadow-[0_14px_32px_rgba(10,26,47,0.06)] transition-transform transition-shadow transition-colors duration-200 hover:-translate-y-1 hover:border-[color:var(--color-card-border-hover)] hover:shadow-[0_22px_60px_rgba(10,26,47,0.14)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-off-white)]"
       style={{ borderTopWidth: 4, borderTopColor: accent.border }}
     >
       <div className="flex items-start gap-4">
@@ -72,19 +67,11 @@ export function PathwayCard({ pathway, index }: PathwayCardProps) {
         >
           {index + 1}
         </div>
-        <div className="min-w-0 flex-1">
+        <div>
           <h3 className="text-[18px] font-semibold text-[color:var(--color-card-text)]">{pathway.name}</h3>
           <p className="mt-2 text-[14px] leading-relaxed text-slate-600">{pathway.description}</p>
-          <a
-            href={GYBS_SCORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex text-[14px] font-semibold text-[color:var(--color-gold)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-off-white)]"
-          >
-            Get Your Business Score
-          </a>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
