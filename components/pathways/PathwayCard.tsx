@@ -1,5 +1,5 @@
 import type { Pathway } from "@/lib/types";
-import { GYBS_BASE_URL } from "@/lib/constants";
+import { GYBS_SCORE_URL } from "@/lib/constants";
 
 interface PathwayCardProps {
   pathway: Pathway;
@@ -53,7 +53,7 @@ export function PathwayCard({ pathway, index }: PathwayCardProps) {
   const accent = ACCENTS[index % ACCENTS.length];
   return (
     <a
-      href={GYBS_BASE_URL}
+      href={GYBS_SCORE_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="group block rounded-[14px] border border-[color:var(--color-card-border)] bg-[color:var(--color-card-bg)] p-6 shadow-[0_14px_32px_rgba(10,26,47,0.06)] transition-transform transition-shadow transition-colors duration-200 hover:-translate-y-1 hover:border-[color:var(--color-card-border-hover)] hover:shadow-[0_22px_60px_rgba(10,26,47,0.14)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-off-white)]"

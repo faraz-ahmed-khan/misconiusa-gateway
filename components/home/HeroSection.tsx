@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import {
   ROUTES,
   CTA_TEXT,
-  GYBS_BASE_URL,
   GYBS_BUSINESS_INTAKE_URL,
   GYBS_PARTNER_URL,
+  GYBS_SCORE_URL,
   GYBS_SUPPLIER_INTAKE_URL,
 } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -55,6 +55,7 @@ export function HeroSection() {
                 <StaggerGroup stagger={0.07} delay={0.18} className="flex flex-wrap gap-3">
                   <StaggerItem>
                     <a
+                      href={GYBS_BUSINESS_INTAKE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-full bg-[color:var(--lane-buyer)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-buyer)] transition-colors hover:bg-[color:var(--lane-buyer)]/30"
@@ -64,6 +65,7 @@ export function HeroSection() {
                   </StaggerItem>
                   <StaggerItem>
                     <a
+                      href={GYBS_SUPPLIER_INTAKE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-full bg-[color:var(--lane-supplier)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-supplier)] transition-colors hover:bg-[color:var(--lane-supplier)]/30"
@@ -73,6 +75,7 @@ export function HeroSection() {
                   </StaggerItem>
                   <StaggerItem>
                     <a
+                      href={GYBS_PARTNER_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-full bg-[color:var(--lane-partner)]/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--lane-partner)] transition-colors hover:bg-[color:var(--lane-partner)]/30"
@@ -126,7 +129,7 @@ export function HeroSection() {
 
                 <motion.div whileHover={{ y: -2, borderColor: "rgba(245,245,242,0.60)" }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
                   <a
-                    href={GYBS_BASE_URL}
+                    href={GYBS_SCORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-[10px] border border-[rgba(0,200,83,0.45)] bg-[rgba(0,200,83,0.10)] px-5 py-2.5 text-[14px] font-semibold text-[#00C853] transition-colors duration-200 hover:bg-[rgba(0,200,83,0.16)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"

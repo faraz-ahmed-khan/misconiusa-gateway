@@ -1,19 +1,86 @@
 /**
- * Site-wide constants. External GYBS URL: NEXT_PUBLIC_GYBS_URL in .env.local
+ * Site-wide constants.
+ * GYBS URLs from .env.local — see .env.example
  */
+
+import type { Pathway } from "./types";
 
 function trimTrailingSlash(url: string): string {
   return url.replace(/\/$/, "");
 }
 
-/** Single GYBS site URL from env — used for all GYBS / intake / partner links */
-export const GYBS_BASE_URL = trimTrailingSlash(process.env.NEXT_PUBLIC_GYBS_URL?.trim() ?? "");
+function envPublicUrl(name: string): string | undefined {
+  const raw = process.env[name]?.trim();
+  return raw ? trimTrailingSlash(raw) : undefined;
+}
 
-export const GYBS_BUSINESS_INTAKE_URL = GYBS_BASE_URL;
-export const GYBS_SUPPLIER_INTAKE_URL = GYBS_BASE_URL;
-export const GYBS_PARTNER_URL = GYBS_BASE_URL;
+/** GYBS site root — NEXT_PUBLIC_GYBS_URL */
+export const GYBS_BASE_URL = envPublicUrl("NEXT_PUBLIC_GYBS_URL") ?? "";
+
+/** Business intake — NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL, else {base}/business-intake */
+export const GYBS_BUSINESS_INTAKE_URL =
+  envPublicUrl("NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL") ??
+  (GYBS_BASE_URL ? `${GYBS_BASE_URL}/business-intake` : "");
+
+/** Supplier intake — NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL, else {base}/supplier-intake */
+export const GYBS_SUPPLIER_INTAKE_URL =
+  envPublicUrl("NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL") ??
+  (GYBS_BASE_URL ? `${GYBS_BASE_URL}/supplier-intake` : "");
+
+/** Partner — NEXT_PUBLIC_GYBS_PARTNER_URL, else {base}/partner */
+export const GYBS_PARTNER_URL =
+  envPublicUrl("NEXT_PUBLIC_GYBS_PARTNER_URL") ??
+  (GYBS_BASE_URL ? `${GYBS_BASE_URL}/partner` : "");
+
 export const GYBS_HOME_URL = GYBS_BASE_URL;
-export const GYBS_INTAKE_URL = GYBS_BASE_URL;
+export const GYBS_INTAKE_URL = GYBS_BUSINESS_INTAKE_URL;
+
+/** Score gateway — NEXT_PUBLIC_GYBS_SCORE_URL, else GYBS_BASE_URL */
+export const GYBS_SCORE_URL = envPublicUrl("NEXT_PUBLIC_GYBS_SCORE_URL") ?? GYBS_BASE_URL;
+
+export function gybsSubscribeUrl(tier: "basic" | "enterprise"): string {
+  return GYBS_BASE_URL ? `${GYBS_BASE_URL}/subscribe?tier=${tier}` : "";
+}
+
+// ——— Readiness pathways (six) ———
+export const PATHWAYS: Pathway[] = [
+  {
+    id: "1",
+    name: "Business Readiness",
+    description: "Understand your business foundation and operational readiness.",
+    color: "blue",
+  },
+  {
+    id: "2",
+    name: "Supplier Readiness",
+    description: "Assess your readiness to work with suppliers and enter supply chains.",
+    color: "orange",
+  },
+  {
+    id: "3",
+    name: "Marketplace Readiness",
+    description: "Evaluate your readiness to enter marketplaces and sell products or services.",
+    color: "green",
+  },
+  {
+    id: "4",
+    name: "Distribution Readiness",
+    description: "Measure your readiness to distribute products and expand channels.",
+    color: "purple",
+  },
+  {
+    id: "5",
+    name: "Contract Readiness",
+    description: "Check your readiness to pursue contracts and structured opportunities.",
+    color: "blue",
+  },
+  {
+    id: "6",
+    name: "SBA Readiness",
+    description: "Review your readiness for SBA pathways and federal programs.",
+    color: "orange",
+  },
+];
 
 export const ROUTES = {
   home: "/",

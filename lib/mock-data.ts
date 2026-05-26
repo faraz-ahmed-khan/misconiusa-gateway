@@ -3,6 +3,7 @@
  * No database; replace with real data/Zoho when backend is implemented.
  */
 
+import { GYBS_SCORE_URL, gybsSubscribeUrl } from "./constants";
 import type {
   OpportunityCard,
   OpportunityItem,
@@ -90,7 +91,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
       { text: "Team Access", included: false },
     ],
     ctaText: "Start Free",
-    ctaHref: "https://getyourbusinessscore.com",
+    ctaHref: GYBS_SCORE_URL,
     ctaVariant: "secondary",
   },
   {
@@ -110,7 +111,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
       { text: "Opportunity Eligibility", included: false },
     ],
     ctaText: "Upgrade to Basic",
-    ctaHref: "https://getyourbusinessscore.com/subscribe?tier=basic",
+    ctaHref: gybsSubscribeUrl("basic"),
     ctaVariant: "secondary",
   },
   {
@@ -131,7 +132,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
       { text: "Advanced Monitoring", included: true },
     ],
     ctaText: "Upgrade to Enterprise",
-    ctaHref: "https://getyourbusinessscore.com/subscribe?tier=enterprise",
+    ctaHref: gybsSubscribeUrl("enterprise"),
     ctaVariant: "primary",
     highlighted: true,
   },

@@ -1,8 +1,4 @@
-import {
-  OPPORTUNITY_CARDS,
-  PATHWAYS,
-  SUBSCRIPTION_PACK,
-} from "@/lib/mock-data";
+import { OPPORTUNITY_CARDS, PATHWAYS } from "@/lib/mock-data";
 import { HeroSection } from "@/components/home/HeroSection";
 import { WhoWeAreSection } from "@/components/home/WhoWeAreSection";
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
@@ -26,7 +22,7 @@ export default function HomePage() {
       <WhatWeOfferSection />
       <WhoWeServeSection />
       <OpportunityCardsSection cards={OPPORTUNITY_CARDS} />
-      <SubscriptionGatewaySection pack={SUBSCRIPTION_PACK} />
+      <SubscriptionGatewaySection />
       <ReadinessPathwaysSection pathways={PATHWAYS} />
       <HowItWorksSection />
       <AboutSection />

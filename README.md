@@ -43,13 +43,15 @@ npm run build
 
 ## Environment
 
-Optional GYBS URLs (default for all: `https://get-your-business-score-com.vercel.app/`):
+GYBS URLs (copy from `.env.example` into `.env.local`):
 
-Env overrides:
+- `NEXT_PUBLIC_GYBS_URL` — GYBS site root (score + subscribe links derive from this)
+- `NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL` — Business intake
+- `NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL` — Supplier intake
+- `NEXT_PUBLIC_GYBS_PARTNER_URL` — Partner intake
+- `NEXT_PUBLIC_GYBS_SCORE_URL` — Optional score CTA override (defaults to `NEXT_PUBLIC_GYBS_URL`)
 
-- `NEXT_PUBLIC_GYBS_URL` — GYBS base URL
-- `NEXT_PUBLIC_GYBS_BUSINESS_INTAKE_URL` — Business intake on GYBS (overrides default)
-- `NEXT_PUBLIC_GYBS_SUPPLIER_INTAKE_URL` — Supplier intake on GYBS (overrides default)
+If intake URLs are omitted, they default to `{GYBS_URL}/business-intake`, `/supplier-intake`, and `/partner`.
 
 ## License
 

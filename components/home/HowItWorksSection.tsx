@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { GybsLink } from "@/components/shared/GybsLink";
 import { Section } from "@/components/shared/Section";
 import AnimateIn from "@/components/ui/AnimateIn";
-import { CTA_TEXT, GYBS_BASE_URL } from "@/lib/constants";
+import { CTA_TEXT, GYBS_SCORE_URL } from "@/lib/constants";
 
 const STEPS = [
   { title: "Subscribe", description: "Subscribe to activate your readiness routing." },
@@ -74,7 +74,7 @@ export function HowItWorksSection() {
         </div>
       </div>
       <AnimateIn delay={0.5} variant="fadeUp" className="mt-12 text-center">
-        <GybsLink href={GYBS_BASE_URL}>{CTA_TEXT.getYourBusinessScore}</GybsLink>
+        <GybsLink href={GYBS_SCORE_URL}>{CTA_TEXT.getYourBusinessScore}</GybsLink>
       </AnimateIn>
     </Section>
   );
