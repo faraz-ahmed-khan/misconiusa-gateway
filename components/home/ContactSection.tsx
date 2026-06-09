@@ -41,13 +41,14 @@ export function ContactSection() {
         </AnimateIn>
       </div>
       <p className="mt-8 text-sm text-[color:var(--color-text-body)]">
-        Footer contact:{" "}
+        Or visit our{" "}
         <a
-          href="mailto:info@misconiusa.com"
+          href="/contact"
           className="font-medium text-[color:var(--color-gold-light)] hover:underline"
         >
-          info@misconiusa.com
-        </a>
+          contact page
+        </a>{" "}
+        for full company details.
       </p>
     </Section>
   );

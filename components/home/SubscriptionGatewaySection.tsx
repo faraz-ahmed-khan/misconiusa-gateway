@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/shared/Section";
 import { SubscriptionTierCard } from "@/components/subscribe/SubscriptionTierCard";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StaggerGroup from "@/components/ui/StaggerGroup";
 import StaggerItem from "@/components/ui/StaggerItem";
-import { SUBSCRIPTION_TIERS } from "@/lib/mock-data";
+import { SUBSCRIPTION_GATEWAY_INTRO, SUBSCRIPTION_TIERS } from "@/lib/mock-data";
+import { ROUTES } from "@/lib/constants";
 
 export function SubscriptionGatewaySection() {
   return (
@@ -17,19 +19,24 @@ export function SubscriptionGatewaySection() {
         <AnimateIn variant="fadeUp" className="text-center">
           <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[color:var(--color-gold)]">SUBSCRIPTION GATEWAY</p>
           <h2 className="mt-3 text-[48px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[color:var(--color-text-primary)]">
-            Choose Your Readiness Subscription
+            Activate Your Business Services
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[18px] leading-[1.8] text-[rgba(245,245,242,0.65)]">
-            Your lane shows where you are. Your subscription determines how far you can go.
+            {SUBSCRIPTION_GATEWAY_INTRO}
           </p>
         </AnimateIn>
-        <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.12} delay={0.08}>
+        <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-2" stagger={0.12} delay={0.08}>
           {SUBSCRIPTION_TIERS.map((tier) => (
             <StaggerItem key={tier.id}>
               <SubscriptionTierCard tier={tier} />
             </StaggerItem>
           ))}
         </StaggerGroup>
+        <p className="mt-8 text-center">
+          <Link href={ROUTES.subscribe} className="text-sm font-semibold text-[color:var(--color-gold)] hover:text-[color:var(--color-gold-light)]">
+            View full Subscription Gateway →
+          </Link>
+        </p>
       </div>
     </Section>
   );

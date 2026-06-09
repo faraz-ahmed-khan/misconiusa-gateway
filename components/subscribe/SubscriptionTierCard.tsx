@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Check, X } from "lucide-react";
 import type { SubscriptionTier } from "@/lib/types";
 
@@ -9,6 +10,10 @@ interface SubscriptionTierCardProps {
 
 export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
   const isPrimary = tier.ctaVariant === "primary";
+  const isExternal = tier.ctaHref.startsWith("http");
+  const ctaClassName = isPrimary
+    ? "mt-8 inline-flex w-full items-center justify-center rounded-full bg-[color:var(--color-gold)] px-6 py-3.5 text-[14px] font-bold text-[#0A1A2F] transition-transform duration-200 hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071422]"
+    : "mt-8 inline-flex w-full items-center justify-center rounded-full border border-[rgba(245,245,242,0.48)] bg-[rgba(245,245,242,0.04)] px-6 py-3.5 text-[14px] font-bold text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.72)] hover:bg-[rgba(245,245,242,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071422]";
 
   return (
     <div
@@ -51,18 +56,15 @@ export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
           </div>
         ))}
       </div>
-      <a
-        href={tier.ctaHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={
-          isPrimary
-            ? "mt-8 inline-flex w-full items-center justify-center rounded-full bg-[color:var(--color-gold)] px-6 py-3.5 text-[14px] font-bold text-[#0A1A2F] transition-transform duration-200 hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071422]"
-            : "mt-8 inline-flex w-full items-center justify-center rounded-full border border-[rgba(245,245,242,0.48)] bg-[rgba(245,245,242,0.04)] px-6 py-3.5 text-[14px] font-bold text-[color:var(--color-text-primary)] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-200 hover:border-[rgba(245,245,242,0.72)] hover:bg-[rgba(245,245,242,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071422]"
-        }
-      >
-        {tier.ctaText}
-      </a>
+      {isExternal ? (
+        <a href={tier.ctaHref} target="_blank" rel="noopener noreferrer" className={ctaClassName}>
+          {tier.ctaText}
+        </a>
+      ) : (
+        <Link href={tier.ctaHref || "#"} className={ctaClassName}>
+          {tier.ctaText}
+        </Link>
+      )}
     </div>
   );
 }

@@ -38,7 +38,9 @@ export const GYBS_INTAKE_URL = GYBS_BUSINESS_INTAKE_URL;
 /** Score gateway — NEXT_PUBLIC_GYBS_SCORE_URL, else GYBS_BASE_URL */
 export const GYBS_SCORE_URL = envPublicUrl("NEXT_PUBLIC_GYBS_SCORE_URL") ?? GYBS_BASE_URL;
 
-export function gybsSubscribeUrl(tier: "basic" | "enterprise"): string {
+export type SubscriptionTierSlug = "basic" | "consultation" | "full" | "enterprise";
+
+export function gybsSubscribeUrl(tier: SubscriptionTierSlug): string {
   return GYBS_BASE_URL ? `${GYBS_BASE_URL}/subscribe?tier=${tier}` : "";
 }
 
@@ -84,23 +86,43 @@ export const PATHWAYS: Pathway[] = [
 
 export const ROUTES = {
   home: "/",
+  about: "/about",
+  whoWeServe: "/who-we-serve",
+  ecosystemReadiness: "/ecosystem-of-readiness",
+  ecosystemOpportunities: "/ecosystem-of-opportunities",
+  whatWeGovern: "/what-we-govern",
+  capabilities: "/capabilities",
+  investorRelations: "/investor-relations",
   opportunities: "/opportunities",
   opportunitiesCustomer: "/opportunities/customer",
   opportunitiesProduct: "/opportunities/product",
   opportunitiesSupplier: "/opportunities/supplier",
   pathways: "/pathways",
   subscribe: "/subscribe",
+  subscriptionDetails: "/subscription-details",
+  beginReadiness: "/begin-readiness",
+  contact: "/contact",
+  terms: "/terms",
+  privacy: "/privacy",
   intakeBusiness: "/intake/business",
   intakeSupplier: "/intake/supplier",
-  contactAnchor: "/#contact",
+  contactAnchor: "/contact",
 } as const;
 
 export const CTA_TEXT = {
-  subscribeAndBegin: "Subscribe & Begin",
+  subscribeAndGetReady: "Subscribe & Get Ready",
+  subscribeAndBegin: "Subscribe & Get Ready",
   startIntake: "Start Intake",
   businessIntake: "Business Intake",
   supplierIntake: "Supplier Intake",
   continueToGybs: "Continue to GYBS",
   getYourBusinessScore: "Get Your Business Score",
   viewOpportunities: "View Opportunities",
+  learnMoreAboutReadiness: "Learn More About Readiness",
+  beginReadinessJourney: "Begin Your Readiness Journey",
+  startReadinessEvaluation: "Start Readiness Evaluation",
+  exploreOpportunityPathways: "Explore Opportunity Pathways",
+  viewGovernanceStandards: "View Governance Standards",
+  exploreCapabilities: "Explore Capabilities",
+  investorRelationsContact: "Investor Relations Contact",
 } as const;

@@ -1,20 +1,33 @@
 ﻿"use client";
 
 import Link from "next/link";
+import { PageHero } from "@/components/content/PageHero";
+import { ContentBody } from "@/components/content/ContentBody";
 import { ROUTES } from "@/lib/constants";
-import { Section } from "@/components/shared/Section";
+import { TERMS_SECTIONS } from "@/lib/site-content";
 import AnimateIn from "@/components/ui/AnimateIn";
 
 export default function TermsPage() {
   return (
     <>
-      <section className="border-b border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/30">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6"><AnimateIn variant="fadeUp"><h1 className="text-2xl font-bold text-slate-900 dark:text-white">Terms of Use</h1></AnimateIn></div>
-      </section>
-      <Section>
-        <AnimateIn variant="fadeUp"><p className="text-slate-600 dark:text-slate-400">Terms of use are managed by Misconi USA. For questions contact info@misconiusa.com.</p></AnimateIn>
-        <p className="mt-6"><Link href={ROUTES.home} className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">← Back to home</Link></p>
-      </Section>
+      <PageHero title="Terms & Policies" />
+      <ContentBody>
+        <AnimateIn variant="fadeUp">
+          <div className="space-y-10">
+            {TERMS_SECTIONS.map((section) => (
+              <div key={section.title}>
+                <h2 className="text-xl font-extrabold text-[#0F172A]">{section.title}</h2>
+                <p className="mt-3">{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </AnimateIn>
+        <p className="mt-10">
+          <Link href={ROUTES.home} className="text-sm font-medium text-[#0F172A] hover:text-[color:var(--color-gold)]">
+            ← Back to home
+          </Link>
+        </p>
+      </ContentBody>
     </>
   );
 }

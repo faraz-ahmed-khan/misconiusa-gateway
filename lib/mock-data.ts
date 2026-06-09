@@ -3,7 +3,7 @@
  * No database; replace with real data/Zoho when backend is implemented.
  */
 
-import { GYBS_SCORE_URL, gybsSubscribeUrl } from "./constants";
+import { gybsSubscribeUrl } from "./constants";
 import type {
   OpportunityCard,
   OpportunityItem,
@@ -76,64 +76,85 @@ export const SUBSCRIPTION_PACK: SubscriptionPack = {
 // ——— Subscription tiers (homepage + subscribe) ———
 export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
   {
-    id: "free",
-    badge: "FREE",
-    price: "$0",
-    title: "Score Only",
-    description: "See your lane. View your score, readiness level, pack, and corrections.",
-    features: [
-      { text: "Business Score (0–100)", included: true },
-      { text: "Readiness Level (1–3)", included: true },
-      { text: "Recommended Lane", included: true },
-      { text: "Assigned Pack", included: true },
-      { text: "Corrections List", included: true },
-      { text: "Education & Templates", included: false },
-      { text: "Team Access", included: false },
-    ],
-    ctaText: "Start Free",
-    ctaHref: GYBS_SCORE_URL,
-    ctaVariant: "secondary",
-  },
-  {
     id: "basic",
     badge: "BASIC",
-    price: "$49",
-    period: "/mo",
-    title: "Education & Support",
-    description: "Unlock education, templates, document support, and limited team access.",
+    price: "$59.99",
+    title: "Basic Readiness Gateway",
+    description: "Educational access for businesses building foundational readiness.",
     features: [
-      { text: "Everything in Free", included: true },
-      { text: "Education & Templates", included: true },
-      { text: "Document Upload & Review", included: true },
-      { text: "Internal Scoring", included: true },
-      { text: "Team Access (Limited)", included: true },
-      { text: "Routing Eligibility", included: false },
-      { text: "Opportunity Eligibility", included: false },
+      { text: "Templates", included: true },
+      { text: "Checklists", included: true },
+      { text: "Readiness literacy resources", included: true },
+      { text: "Does not include opportunity access", included: false },
     ],
-    ctaText: "Upgrade to Basic",
+    ctaText: "Subscribe & Get Ready",
     ctaHref: gybsSubscribeUrl("basic"),
     ctaVariant: "secondary",
   },
   {
-    id: "enterprise",
-    badge: "ENTERPRISE",
-    tag: "Most Complete",
-    price: "$199",
-    period: "/mo",
-    title: "Full Readiness Infrastructure",
-    description: "Unlock all lane features including Opportunity Lane, eligibility, and CUBE suite.",
+    id: "consultation",
+    badge: "CONSULTATION",
+    price: "$249",
+    title: "Consultation Gateway",
+    description: "Advisory support for businesses needing guided corrections and expert review.",
     features: [
-      { text: "Everything in Basic", included: true },
-      { text: "Unlimited Team Access", included: true },
-      { text: "Full Business Score Report", included: true },
-      { text: "Routing Eligibility", included: true },
-      { text: "Opportunity Eligibility", included: true },
-      { text: "CUBE Enterprise Suite", included: true },
-      { text: "Advanced Monitoring", included: true },
+      { text: "Document review", included: true },
+      { text: "Correction guidance", included: true },
+      { text: "Readiness roadmap support", included: true },
+      { text: "Does not include opportunity access", included: false },
     ],
-    ctaText: "Upgrade to Enterprise",
-    ctaHref: gybsSubscribeUrl("enterprise"),
+    ctaText: "Subscribe & Get Ready",
+    ctaHref: gybsSubscribeUrl("consultation"),
+    ctaVariant: "secondary",
+  },
+  {
+    id: "full",
+    badge: "FULL PACKAGING",
+    tag: "Done-With-You",
+    price: "$2,499",
+    title: "Full Readiness Packaging Gateway",
+    description: "Done-With-You support for businesses needing full readiness packaging.",
+    features: [
+      { text: "Document assembly", included: true },
+      { text: "Capability mapping", included: true },
+      { text: "Scoring", included: true },
+      { text: "Routing", included: true },
+      {
+        text: "Unlocks access to the full opportunity landscape on MisconiUSA.com once readiness is confirmed and approved by a Misconi USA representative",
+        included: true,
+      },
+    ],
+    ctaText: "Subscribe & Get Ready",
+    ctaHref: gybsSubscribeUrl("full"),
     ctaVariant: "primary",
     highlighted: true,
   },
+  {
+    id: "enterprise",
+    badge: "ENTERPRISE",
+    price: "$4,999",
+    title: "Enterprise DSCM Gateway",
+    description: "Enterprise-level readiness for multi-department or multi-location organizations.",
+    features: [
+      { text: "Enterprise routing", included: true },
+      { text: "DSCM integration", included: true },
+      { text: "Advanced readiness scoring", included: true },
+      {
+        text: "Unlocks access to the full opportunity landscape on MisconiUSA.com once readiness is confirmed and approved by a Misconi USA representative",
+        included: true,
+      },
+    ],
+    ctaText: "Subscribe & Get Ready",
+    ctaHref: gybsSubscribeUrl("enterprise"),
+    ctaVariant: "primary",
+  },
 ];
+
+export const SUBSCRIPTION_GATEWAY_INTRO =
+  "Activate your business services and begin working with Misconi USA. Your subscription options appear after you complete your Initial Business Score on GetYourBusinessScore.com.";
+
+export const SUBSCRIPTION_APPROVAL_NOTE =
+  "Opportunity access requires a formal review by a Misconi USA representative. Approval ensures your business meets readiness, documentation, and compliance standards before entering the opportunity ecosystem.";
+
+export const SUBSCRIPTION_SUPPORT_NOTE =
+  "Subscriptions are processed securely through our external payment system. Once activated, your readiness services begin immediately.";

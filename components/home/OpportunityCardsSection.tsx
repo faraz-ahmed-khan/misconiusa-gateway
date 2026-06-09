@@ -13,9 +13,10 @@ interface OpportunityCardsSectionProps {
 
 export function OpportunityCardsSection({ cards }: OpportunityCardsSectionProps) {
   return (
-    <Section className="bg-[#F8FAFC]">
+    <Section id="opportunities" className="bg-[#F8FAFC]">
       <AnimateIn variant="fadeUp">
-        <h2 className="text-2xl font-semibold text-[color:var(--color-text-dark)]">Three Opportunity Cards</h2>
+        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[color:var(--color-gold)]">ECOSYSTEM OF OPPORTUNITIES</p>
+        <h2 className="mt-3 text-[44px] font-semibold leading-[1.15] text-[#0F172A]">Opportunity Pathways</h2>
       </AnimateIn>
       <AnimateIn delay={0.1} variant="fadeUp">
         <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
