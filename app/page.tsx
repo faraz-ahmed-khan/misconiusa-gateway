@@ -1,4 +1,5 @@
 import { OPPORTUNITY_CARDS, PATHWAYS } from "@/lib/mock-data";
+import { CorporateBanner } from "@/components/layout/CorporateBanner";
 import { HeroSection } from "@/components/home/HeroSection";
 import { WhoWeAreSection } from "@/components/home/WhoWeAreSection";
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
@@ -17,6 +18,7 @@ import { ContactSection } from "@/components/home/ContactSection";
 export default function HomePage() {
   return (
     <>
+      <CorporateBanner />
       <HeroSection />
       <WhoWeAreSection />
       <WhatWeOfferSection />

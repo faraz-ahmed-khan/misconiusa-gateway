@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHero } from "@/components/content/PageHero";
+import { CorporateBanner } from "@/components/layout/CorporateBanner";
 import { ContentBody } from "@/components/content/ContentBody";
 import { PageCta } from "@/components/content/PageCta";
 import { CTA_TEXT } from "@/lib/constants";
@@ -10,9 +10,15 @@ import AnimateIn from "@/components/ui/AnimateIn";
 export default function InvestorRelationsPage() {
   return (
     <>
-      <PageHero title="Investor Relations" subheader="Governance • Stability • National Economic Alignment" />
+      <CorporateBanner />
       <ContentBody>
         <AnimateIn variant="fadeUp">
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl">Investor Relations</h1>
+          <p className="mt-3 text-[15px] font-medium uppercase tracking-[0.08em] text-[color:var(--color-gold)]">
+            Governance • Stability • National Economic Alignment
+          </p>
+        </AnimateIn>
+        <AnimateIn variant="fadeUp" delay={0.08}>
           <p>
             Misconi USA maintains a federal-aligned governance posture designed to support long-term stability, national economic development, and institutional confidence.
           </p>
