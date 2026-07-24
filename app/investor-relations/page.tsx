@@ -1,7 +1,7 @@
 "use client";
 
 import { CorporateBanner } from "@/components/layout/CorporateBanner";
-import { ContentBody } from "@/components/content/ContentBody";
+import { ContentBody, CONTENT_LIGHT_PANEL } from "@/components/content/ContentBody";
 import { PageCta } from "@/components/content/PageCta";
 import { CTA_TEXT } from "@/lib/constants";
 import { CONTACT } from "@/lib/site-content";
@@ -37,10 +37,10 @@ export default function InvestorRelationsPage() {
             <PageCta label={CTA_TEXT.investorRelationsContact} href={`mailto:${CONTACT.investorEmail}`} external />
           </div>
 
-          <div className="mt-10 rounded-[18px] border border-[rgba(212,168,87,0.25)] bg-[#F8FAFC] p-8">
-            <h2 className="text-xl font-extrabold text-[#0F172A]">Investor Relations Office</h2>
+          <div className={`mt-10 ${CONTENT_LIGHT_PANEL}`}>
+            <h2 className="text-xl font-extrabold">Investor Relations Office</h2>
             <p className="mt-4">
-              <a href={`mailto:${CONTACT.investorEmail}`} className="font-semibold text-[color:var(--color-gold)] hover:underline">
+              <a href={`mailto:${CONTACT.investorEmail}`} className="font-semibold hover:underline">
                 {CONTACT.investorEmail}
               </a>
             </p>

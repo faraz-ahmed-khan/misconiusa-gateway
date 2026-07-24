@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHero } from "@/components/content/PageHero";
-import { ContentBody } from "@/components/content/ContentBody";
+import { ContentBody, CONTENT_LIGHT_PANEL } from "@/components/content/ContentBody";
 import { PageCta } from "@/components/content/PageCta";
 import { CTA_TEXT, GYBS_SCORE_URL } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -30,8 +30,8 @@ export default function BeginReadinessPage() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-[18px] border border-[rgba(212,168,87,0.2)] bg-[#F8FAFC] p-8">
-            <h2 className="text-xl font-extrabold text-[#0F172A]">Notes</h2>
+          <div className={`mt-10 ${CONTENT_LIGHT_PANEL}`}>
+            <h2 className="text-xl font-extrabold">Notes</h2>
             <ul className="mt-4 list-disc pl-6">
               <li>This page exists only to make routing clear.</li>
               <li>It prevents confusion between readiness and subscription.</li>

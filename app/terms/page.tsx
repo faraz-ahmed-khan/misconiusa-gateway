@@ -10,20 +10,32 @@ import AnimateIn from "@/components/ui/AnimateIn";
 export default function TermsPage() {
   return (
     <>
-      <PageHero title="Terms & Policies" />
+      <PageHero title="Terms of Use" subheader="Misconi USA LLC" />
       <ContentBody>
         <AnimateIn variant="fadeUp">
           <div className="space-y-10">
             {TERMS_SECTIONS.map((section) => (
-              <div key={section.title}>
-                <h2 className="text-xl font-extrabold text-[#0F172A]">{section.title}</h2>
-                <p className="mt-3">{section.body}</p>
-              </div>
+              <section key={section.title}>
+                <h2 className="text-xl">{section.title}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="mt-3">
+                    {paragraph}
+                  </p>
+                ))}
+                {section.bullets && section.bullets.length > 0 && (
+                  <ul className="mt-3 list-disc space-y-2 pl-6">
+                    {section.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {section.closing && <p className="mt-3">{section.closing}</p>}
+              </section>
             ))}
           </div>
         </AnimateIn>
         <p className="mt-10">
-          <Link href={ROUTES.home} className="text-sm font-medium text-[#0F172A] hover:text-[color:var(--color-gold)]">
+          <Link href={ROUTES.home} className="text-sm font-medium hover:text-[color:var(--color-gold)]">
             ← Back to home
           </Link>
         </p>

@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHero } from "@/components/content/PageHero";
-import { ContentBody } from "@/components/content/ContentBody";
+import { ContentBody, CONTENT_LIGHT_PANEL } from "@/components/content/ContentBody";
 import { PageCta } from "@/components/content/PageCta";
 import { CTA_TEXT, GYBS_SCORE_URL } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -38,8 +38,8 @@ export default function EcosystemOfReadinessPage() {
           <h2 className="mt-10 text-2xl">Readiness as a Requirement</h2>
           <p className="mt-4">No organization can enter the Ecosystem of Opportunities without first completing readiness.</p>
 
-          <div className="mt-10 rounded-[18px] border border-[rgba(212,168,87,0.25)] bg-[#F8FAFC] p-8">
-            <h2 className="text-xl font-extrabold text-[#0F172A]">Routing Block — Begin Readiness</h2>
+          <div className={`mt-10 ${CONTENT_LIGHT_PANEL}`}>
+            <h2 className="text-xl font-extrabold">Routing Block — Begin Readiness</h2>
             <p className="mt-4">All readiness begins at: <strong>GetYourBusinessScore.com</strong></p>
             <p className="mt-4">Subscription options are offered only after your Initial Business Score is completed.</p>
           </div>

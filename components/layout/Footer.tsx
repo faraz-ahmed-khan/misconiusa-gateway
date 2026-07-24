@@ -22,7 +22,7 @@ const FOOTER_COLUMNS = [
     links: [
       { href: ROUTES.investorRelations, label: "Investor Relations" },
       { href: ROUTES.subscribe, label: "Subscription Gateway" },
-      { href: ROUTES.terms, label: "Terms & Policies" },
+      { href: ROUTES.terms, label: "Terms of Use" },
     ],
   },
 ] as const;

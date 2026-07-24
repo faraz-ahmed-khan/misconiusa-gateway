@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHero } from "@/components/content/PageHero";
-import { ContentBody } from "@/components/content/ContentBody";
+import { ContentBody, CONTENT_LIGHT_PANEL } from "@/components/content/ContentBody";
 import { PageCta } from "@/components/content/PageCta";
 import { CTA_TEXT, GYBS_SCORE_URL, ROUTES } from "@/lib/constants";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -28,8 +28,8 @@ export default function EcosystemOfOpportunitiesPage() {
           <h2 className="mt-10 text-2xl">Opportunity Follows Readiness</h2>
           <p className="mt-4">Organizations cannot enter the Ecosystem of Opportunities without completing readiness.</p>
 
-          <div className="mt-10 rounded-[18px] border border-[rgba(212,168,87,0.25)] bg-[#F8FAFC] p-8">
-            <h2 className="text-xl font-extrabold text-[#0F172A]">Routing Note</h2>
+          <div className={`mt-10 ${CONTENT_LIGHT_PANEL}`}>
+            <h2 className="text-xl font-extrabold">Routing Note</h2>
             <p className="mt-4">
               Organizations seeking opportunity pathways must begin with readiness: <strong>GetYourBusinessScore.com</strong>
             </p>

@@ -17,12 +17,132 @@ export const BRAND = {
   footerBaseline: "MISCONI USA — The Readiness Authority™",
 } as const;
 
-export const TERMS_SECTIONS = [
-  { title: "Platform use standards", body: "Users must engage with Misconi USA platforms in accordance with governed readiness and opportunity standards. Misuse, misrepresentation, or attempts to bypass readiness requirements may result in restricted access." },
-  { title: "Data handling", body: "Misconi USA processes business information submitted through readiness evaluations, subscriptions, and contact forms. Data is handled in accordance with applicable privacy standards and used to support readiness, governance, and opportunity routing." },
-  { title: "Accuracy & updates", body: "Users are responsible for providing accurate business information. Misconi USA may update platform content, governance standards, and subscription offerings as the national ecosystem evolves." },
-  { title: "User responsibilities", body: "Organizations entering the ecosystem are responsible for maintaining accurate documentation, completing required readiness steps, and adhering to governance standards before opportunity activation." },
-  { title: "Intellectual property", body: "All platform content, frameworks, governance structures, and branded materials are the intellectual property of Misconi USA Inc. Unauthorized reproduction or distribution is prohibited." },
-  { title: "External links", body: "Misconi USA may link to external systems including GetYourBusinessScore.com and payment processors. Users are subject to the terms and policies of those external platforms when engaging with them." },
-  { title: "Limitation of liability", body: "Misconi USA provides governance, readiness, and routing frameworks. Opportunity access, procurement outcomes, and third-party transactions remain subject to separate review, approval, and compliance requirements." },
-] as const;
+export type TermsSection = {
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+  closing?: string;
+};
+
+export const TERMS_SECTIONS: TermsSection[] = [
+  {
+    title: "1. Acceptance of Terms",
+    paragraphs: [
+      "By accessing or using any Misconi USA website, platform, or service, you agree to these Terms of Use. If you do not agree, you must discontinue use immediately.",
+      'Misconi USA LLC ("Misconi USA," "we," "us," or "our") may update these Terms at any time. Continued use after changes constitutes acceptance of the updated Terms.',
+    ],
+  },
+  {
+    title: "2. Definitions",
+    paragraphs: [],
+    bullets: [
+      '"Services": All readiness scoring, intake, evaluation, and protection systems provided by Misconi USA.',
+      '"User": Any individual or organization accessing Misconi USA websites or services.',
+      '"Content": All text, graphics, scoring outputs, data, and materials provided by Misconi USA.',
+      '"Websites": Any Misconi USA web property.',
+    ],
+  },
+  {
+    title: "3. Permitted Use",
+    paragraphs: ["Users may access Misconi USA websites and systems solely for:"],
+    bullets: [
+      "Business-readiness evaluation",
+      "Intake and scoring processes",
+      "Supplier verification",
+      "Viewing informational content",
+      "Preparing opportunities or submissions",
+    ],
+    closing: "Use must comply with all applicable laws and these Terms.",
+  },
+  {
+    title: "4. Prohibited Use",
+    paragraphs: ["Users may not:"],
+    bullets: [
+      "Interfere with or disrupt Misconi USA systems",
+      "Attempt unauthorized access",
+      "Reverse-engineer or copy proprietary scoring systems",
+      "Use the Services for fraudulent or unlawful purposes",
+      "Submit false or misleading business information",
+      "Use automated tools (bots, scrapers, crawlers) without permission",
+    ],
+    closing: "Misconi USA may suspend or terminate access for violations.",
+  },
+  {
+    title: "5. Intellectual Property",
+    paragraphs: [
+      "All content, scoring systems, readiness frameworks, graphics, logos, and proprietary processes are owned by Misconi USA LLC and protected by U.S. and international intellectual property laws.",
+      "Users receive no ownership rights and may not reproduce, distribute, or modify any Misconi USA materials without written permission.",
+    ],
+  },
+  {
+    title: "6. Accounts and Subscriptions",
+    paragraphs: ["Some services may require account creation or subscription enrollment. Users agree to:"],
+    bullets: [
+      "Provide accurate information",
+      "Maintain confidentiality of login credentials",
+      "Accept responsibility for all activity under their account",
+    ],
+    closing: "Misconi USA may suspend accounts for misuse or non-compliance.",
+  },
+  {
+    title: "7. Data Handling",
+    paragraphs: [
+      "Misconi USA may collect and process business information as described in our Privacy Policy.",
+      "We do not sell personal or business data.",
+      "We do not request or store sensitive personal information such as Social Security numbers or financial account numbers.",
+    ],
+  },
+  {
+    title: "8. Disclaimers",
+    paragraphs: ['Misconi USA provides readiness scoring and protection systems "as-is" without warranties of any kind, including:'],
+    bullets: ["Accuracy", "Completeness", "Fitness for a particular purpose", "Availability"],
+    closing:
+      "Readiness scores and evaluations are informational tools and do not guarantee business outcomes, approvals, or procurement awards.",
+  },
+  {
+    title: "9. Limitation of Liability",
+    paragraphs: ["To the fullest extent permitted by law, Misconi USA LLC is not liable for:"],
+    bullets: [
+      "Direct, indirect, incidental, or consequential damages",
+      "Loss of business, revenue, or opportunities",
+      "Errors, delays, or interruptions in service",
+      "Decisions made based on readiness scores or evaluations",
+    ],
+    closing: "Users assume full responsibility for how they use Misconi USA systems.",
+  },
+  {
+    title: "10. Third-Party Links",
+    paragraphs: [
+      "Misconi USA websites may contain links to external sites. We are not responsible for third-party content, policies, or practices.",
+    ],
+  },
+  {
+    title: "11. Termination",
+    paragraphs: ["Misconi USA may suspend or terminate access to any user who:"],
+    bullets: [
+      "Violates these Terms",
+      "Misuses the platform",
+      "Submits fraudulent information",
+      "Interferes with system integrity",
+    ],
+    closing: "Termination may occur without notice.",
+  },
+  {
+    title: "12. Governing Law",
+    paragraphs: [
+      "These Terms are governed by the laws of the State of Tennessee and applicable U.S. federal laws. Any disputes must be resolved in Tennessee courts.",
+    ],
+  },
+  {
+    title: "13. Contact Information",
+    paragraphs: [
+      "For questions about these Terms, contact:",
+      "Misconi USA LLC",
+      "9234 Kingston Pike #457",
+      "Knoxville, Tennessee 37922",
+      `Email: ${CONTACT.email}`,
+      `Phone: ${CONTACT.phone}`,
+    ],
+  },
+];
+
