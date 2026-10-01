@@ -7,9 +7,8 @@ export const LINKS = {
   // Free Business Score — GetYourBusinessScore.com
   // TODO(client): confirm exact free-score URL
   gybsScore: "https://getyourbusinessscore.com",
-  // Readiness package / pricing page on GYBS
-  // TODO(client): pending GYBS package URL — do not invent
-  gybsPackages: "",
+  // Readiness package / pricing section on GYBS homepage
+  gybsPackages: "https://getyourbusinessscore.com/#packages",
 } as const;
 
 /** Resolves package CTA: GYBS packages URL, or #contact when unset. */
