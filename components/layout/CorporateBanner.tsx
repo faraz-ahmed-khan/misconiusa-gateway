@@ -1,4 +1,4 @@
-const BANNER_TAGLINE = "Readiness is the Gate to Opportunity";
+const BANNER_TAGLINE = "Readiness is the Gateway to Opportunity.";
 
 export function CorporateBanner() {
   return (

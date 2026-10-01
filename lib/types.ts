@@ -3,13 +3,14 @@
  * Operational gateway — forms, cards, subscription, pathways only.
  */
 
-// ——— General Contact Form ———
+// ——— Contact Form ———
 export interface GeneralContactPayload {
   name: string;
   email: string;
   message: string;
+  company: string;
+  interestCategory: string;
   phone?: string;
-  company?: string;
 }
 
 // ——— Supplier Interest Form ———

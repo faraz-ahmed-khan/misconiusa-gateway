@@ -1,24 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { NavLink } from "@/components/shared/NavLink";
 import { SiteLogo } from "@/components/layout/SiteLogo";
 import { CTA_TEXT, ROUTES } from "@/lib/constants";
+import { LINKS, isExternalHref } from "@/lib/links";
 
 const NAV_ITEMS = [
-  { label: "Home", href: ROUTES.home },
-  { label: "About", href: ROUTES.about },
-  { label: "What We Govern", href: ROUTES.whatWeGovern },
-  { label: "Capabilities", href: ROUTES.capabilities },
-  { label: "Subscription Gateway", href: ROUTES.subscribe },
-  { label: "Investor Relations", href: ROUTES.investorRelations },
-  { label: "Contact", href: ROUTES.contact },
+  { label: "For Businesses", href: ROUTES.forBusinesses },
+  { label: "For Partners", href: ROUTES.forPartners },
+  { label: "About", href: ROUTES.aboutAnchor },
+  { label: "Contact", href: ROUTES.contactAnchor },
 ] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const scoreHref = LINKS.gybsScore;
+  const scoreIsExternal = isExternalHref(scoreHref);
 
   return (
     <motion.header
@@ -63,12 +62,13 @@ export function Header() {
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
             className="ml-1 shrink-0"
           >
-            <Link
-              href={ROUTES.beginReadiness}
+            <a
+              href={scoreHref}
+              {...(scoreIsExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="inline-flex items-center justify-center whitespace-nowrap rounded-[10px] border border-[color:var(--color-gold)] px-4 py-2 text-[13px] font-semibold text-[color:var(--color-gold)] transition-colors duration-200 hover:bg-[rgba(212,168,87,0.12)] hover:text-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-navy)]"
             >
-              {CTA_TEXT.beginReadinessJourney}
-            </Link>
+              {CTA_TEXT.getYourBusinessScore}
+            </a>
           </motion.div>
         </motion.nav>
 
@@ -107,13 +107,14 @@ export function Header() {
                 ))}
               </nav>
               <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>
-                <Link
-                  href={ROUTES.beginReadiness}
+                <a
+                  href={scoreHref}
+                  {...(scoreIsExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-[10px] bg-[color:var(--color-gold)] px-5 py-3 text-[15px] font-semibold text-[color:var(--color-text-dark)] shadow-[0_10px_32px_rgba(0,0,0,0.65)] transition-transform duration-150 hover:-translate-y-[1px] hover:bg-[color:var(--color-gold-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(10,26,47,0.98)]"
                 >
-                  {CTA_TEXT.beginReadinessJourney}
-                </Link>
+                  {CTA_TEXT.getYourBusinessScore}
+                </a>
               </motion.div>
             </div>
           </div>

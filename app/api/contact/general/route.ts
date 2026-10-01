@@ -55,8 +55,9 @@ export async function POST(request: Request): Promise<NextResponse<ApiResponse>>
           },
           Email: result.data.email,
           Phone_Number: result.data.phone || "",
-          Company: result.data.company || "",
-          Message: result.data.message,
+          Company: result.data.company,
+          Interest_Category: result.data.interestCategory,
+          Message: `[${result.data.interestCategory}] ${result.data.message}`,
         },
       ],
     };

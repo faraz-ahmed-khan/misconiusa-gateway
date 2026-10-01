@@ -10,7 +10,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 export default function TermsPage() {
   return (
     <>
-      <PageHero title="Terms & Policies" />
+      <PageHero title="Terms of Use" />
       <ContentBody>
         <AnimateIn variant="fadeUp">
           <div className="space-y-10">

@@ -7,12 +7,50 @@ import { gybsSubscribeUrl } from "./constants";
 import type {
   OpportunityCard,
   OpportunityItem,
+  Pathway,
   SubscriptionPack,
   SubscriptionTier,
 } from "./types";
 
-// Pathways are defined in constants (single source of truth).
-export { PATHWAYS } from "./constants";
+/** Kept for interior /pathways page and API — pending client confirmation to remove. */
+export const PATHWAYS: Pathway[] = [
+  {
+    id: "1",
+    name: "Business Readiness",
+    description: "Understand your business foundation and operational readiness.",
+    color: "blue",
+  },
+  {
+    id: "2",
+    name: "Supplier Readiness",
+    description: "Assess your readiness to work with suppliers and enter supply chains.",
+    color: "orange",
+  },
+  {
+    id: "3",
+    name: "Marketplace Readiness",
+    description: "Evaluate your readiness to enter marketplaces and sell products or services.",
+    color: "green",
+  },
+  {
+    id: "4",
+    name: "Distribution Readiness",
+    description: "Measure your readiness to distribute products and expand channels.",
+    color: "purple",
+  },
+  {
+    id: "5",
+    name: "Contract Readiness",
+    description: "Check your readiness to pursue contracts and structured opportunities.",
+    color: "blue",
+  },
+  {
+    id: "6",
+    name: "SBA Readiness",
+    description: "Review your readiness for SBA pathways and federal programs.",
+    color: "orange",
+  },
+];
 
 // ——— Three Opportunity Cards (exact content from spec) ———
 export const OPPORTUNITY_CARDS: OpportunityCard[] = [

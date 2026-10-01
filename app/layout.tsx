@@ -6,9 +6,8 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 
 export const metadata: Metadata = {
-  title: "Misconi USA — Your Readiness and Opportunity Gateway",
-  description:
-    "Misconi USA is the Prime Agent operating the national Readiness and Opportunity Gateway. Choose your readiness pathway and access opportunities.",
+  title: "Misconi USA — The Readiness Company | Readiness is the Gateway to Opportunity",
+  description: "Misconi USA — The Readiness Company | Readiness is the Gateway to Opportunity",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

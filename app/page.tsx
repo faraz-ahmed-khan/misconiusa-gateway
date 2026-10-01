@@ -1,33 +1,30 @@
-import { OPPORTUNITY_CARDS, PATHWAYS } from "@/lib/mock-data";
-import { CorporateBanner } from "@/components/layout/CorporateBanner";
 import { HeroSection } from "@/components/home/HeroSection";
+import { HowReadinessWorksSection } from "@/components/home/HowReadinessWorksSection";
+import { WhyReadinessMattersSection } from "@/components/home/WhyReadinessMattersSection";
 import { WhoWeAreSection } from "@/components/home/WhoWeAreSection";
-import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
-import { WhoWeServeSection } from "@/components/home/WhoWeServeSection";
-import { OpportunityCardsSection } from "@/components/home/OpportunityCardsSection";
-import { SubscriptionGatewaySection } from "@/components/home/SubscriptionGatewaySection";
-import { ReadinessPathwaysSection } from "@/components/home/ReadinessPathwaysSection";
-import { HowItWorksSection } from "@/components/home/HowItWorksSection";
-import { AboutSection } from "@/components/home/AboutSection";
+import { WhatMakesUsDifferentSection } from "@/components/home/WhatMakesUsDifferentSection";
+import { ForBusinessesPartnersSection } from "@/components/home/ForBusinessesPartnersSection";
+import { SelectPackageCtaSection } from "@/components/home/SelectPackageCtaSection";
+import { BottomStatementSection } from "@/components/home/BottomStatementSection";
 import { ContactSection } from "@/components/home/ContactSection";
 
 /**
- * Homepage — presentation gateway (no intake forms).
- * Who We Are → What We Offer → Who We Serve → Opportunities → Subscription → Pathways → How We Work → About → Contact
+ * Homepage order (client Reference v2):
+ * Hero → How Readiness Works → Why Readiness Matters → Who We Are →
+ * What Makes Us Different → For Businesses/Partners → Package CTA →
+ * Bottom statement → Contact
  */
 export default function HomePage() {
   return (
     <>
-      <CorporateBanner />
       <HeroSection />
+      <HowReadinessWorksSection />
+      <WhyReadinessMattersSection />
       <WhoWeAreSection />
-      <WhatWeOfferSection />
-      <WhoWeServeSection />
-      <OpportunityCardsSection cards={OPPORTUNITY_CARDS} />
-      <SubscriptionGatewaySection />
-      <ReadinessPathwaysSection pathways={PATHWAYS} />
-      <HowItWorksSection />
-      <AboutSection />
+      <WhatMakesUsDifferentSection />
+      <ForBusinessesPartnersSection />
+      <SelectPackageCtaSection />
+      <BottomStatementSection />
       <ContactSection />
     </>
   );
