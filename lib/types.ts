@@ -13,20 +13,6 @@ export interface GeneralContactPayload {
   phone?: string;
 }
 
-// ——— Supplier Interest Form ———
-export interface SupplierInterestPayload {
-  name: string;
-  email: string;
-  company: string;
-  interestArea: string;
-  productLine: string;
-  phone: string;
-  country: string;
-  state: string;
-  city: string;
-  shortDescription: string;
-}
-
 // ——— Opportunity Cards (three only) ———
 export type OpportunityLane = "customer" | "product" | "supplier";
 

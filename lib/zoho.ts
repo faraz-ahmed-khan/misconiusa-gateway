@@ -10,16 +10,16 @@ export async function getZohoAccessToken(): Promise<string> {
     refresh_token: process.env.ZOHO_REFRESH_TOKEN!,
     client_id: process.env.ZOHO_CLIENT_ID!,
     client_secret: process.env.ZOHO_CLIENT_SECRET!,
-    grant_type: 'refresh_token',
+    grant_type: "refresh_token",
   });
 
   const res = await fetch(`${process.env.ZOHO_ACCOUNT_BASE}/oauth/v2/token`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: params.toString(),
-    cache: 'no-store',
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -30,7 +30,7 @@ export async function getZohoAccessToken(): Promise<string> {
   const data = (await res.json()) as ZohoTokenResponse;
 
   if (!data.access_token) {
-    throw new Error('Zoho token refresh failed: no access token returned');
+    throw new Error("Zoho token refresh failed: no access token returned");
   }
 
   return data.access_token;
@@ -43,9 +43,9 @@ export async function zohoFetch(path: string, init: RequestInit = {}) {
     ...init,
     headers: {
       Authorization: `Zoho-oauthtoken ${accessToken}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...(init.headers || {}),
     },
-    cache: 'no-store',
+    cache: "no-store",
   });
 }

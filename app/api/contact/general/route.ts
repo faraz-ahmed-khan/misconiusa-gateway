@@ -41,23 +41,22 @@ export async function POST(request: Request): Promise<NextResponse<ApiResponse>>
 
     const ownerName = process.env.ZOHO_OWNER_NAME!;
     const appLinkName = process.env.ZOHO_APP_LINK_NAME!;
-    const formLinkName = process.env.ZOHO_GENERAL_FORM_LINK_NAME!;
+    const formLinkName = process.env.ZOHO_CONTACT_FORM_LINK_NAME!;
 
     const { firstName, lastName } = splitName(result.data.name);
 
     const zohoPayload = {
       data: [
         {
-          // Adjust these field link names if your Zoho form uses different ones
           Name: {
             first_name: firstName,
             last_name: lastName,
           },
           Email: result.data.email,
           Phone_Number: result.data.phone || "",
-          Company: result.data.company,
+          Business: result.data.company,
           Interest_Category: result.data.interestCategory,
-          Message: `[${result.data.interestCategory}] ${result.data.message}`,
+          Message: result.data.message,
         },
       ],
     };
