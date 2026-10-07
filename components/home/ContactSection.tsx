@@ -7,7 +7,7 @@ import { CONTACT } from "@/lib/site-content";
 
 export function ContactSection() {
   return (
-    <Section id="contact" className="border-t border-[rgba(212,168,87,0.25)] bg-[color:var(--color-navy)]">
+    <Section id="contact" className="scroll-mt-24 border-t border-[rgba(212,168,87,0.25)] bg-[color:var(--color-navy)]">
       <AnimateIn delay={0} variant="fadeUp">
         <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">Contact Us</h2>
       </AnimateIn>

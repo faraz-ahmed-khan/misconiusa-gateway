@@ -22,7 +22,7 @@ export function SelectPackageCtaSection() {
             {...(packageExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             whileHover={{ y: -3, scale: 1.03 }}
             whileTap={{ scale: 0.96 }}
-            className="inline-flex items-center justify-center rounded-[10px] bg-[color:var(--color-gold)] px-8 py-4 text-[16px] font-semibold text-[color:var(--color-text-dark)] shadow-[0_8px_32px_rgba(0,0,0,0.45)] hover:bg-[color:var(--color-gold-light)]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-[10px] bg-[color:var(--color-gold)] px-8 py-4 text-[16px] font-semibold text-[color:var(--color-text-dark)] shadow-[0_8px_32px_rgba(0,0,0,0.45)] hover:bg-[color:var(--color-gold-light)]"
           >
             {CTA_TEXT.selectYourReadinessPackage}
           </motion.a>

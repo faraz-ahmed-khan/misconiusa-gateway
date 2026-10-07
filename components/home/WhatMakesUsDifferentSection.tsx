@@ -10,7 +10,7 @@ const CARDS = [
   "We evaluate your business across the areas that matter most to lenders, partners, and buyers.",
   "We combine readiness and quality checks to keep standards consistent.",
   "We connect prepared businesses to the right next opportunity.",
-  "We validate every business before recommending it forward.",
+  "We use governed readiness verification before qualified businesses are advanced for applicable opportunities.",
   "We follow a clear, repeatable process for every business we work with.",
   "We help businesses get discovered by the partners and programs that fit them.",
 ];

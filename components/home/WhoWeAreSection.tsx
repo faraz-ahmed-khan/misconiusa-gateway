@@ -5,7 +5,7 @@ import { Section } from "@/components/shared/Section";
 
 export function WhoWeAreSection() {
   return (
-    <Section id="about" className="bg-[#F8FAFC]">
+    <Section id="about" className="scroll-mt-24 bg-[#F8FAFC]">
       <AnimateIn variant="fadeUp" className="mx-auto max-w-3xl text-center">
         <div className="inline-flex items-center border-l-4 border-[color:var(--color-gold)] pl-3">
           <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-[color:var(--color-gold)]">ABOUT MISCONI USA</span>

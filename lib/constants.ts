@@ -71,10 +71,14 @@ export const ROUTES = {
 export const CTA_TEXT = {
   getYourBusinessScore: "Get Your Business Score",
   getYourFreeBusinessScore: "Get Your Free Business Score",
+  seeHowReadinessWorks: "See How Readiness Works",
+  contactMisconiUSA: "Contact Misconi USA",
   selectYourReadinessPackage: "Select Your Readiness Package",
   becomeAPartner: "Become a Partner",
   becomeAnAffiliate: "Become an Affiliate",
   sendMessage: "Send Message",
+  preliminaryScoreNote:
+    "Your initial score is preliminary. Verified readiness requires evidence review and governed verification.",
   // Legacy labels kept for interior pages pending client confirmation to remove those routes
   subscribeAndGetReady: "Select Your Readiness Package",
   subscribeAndBegin: "Select Your Readiness Package",
